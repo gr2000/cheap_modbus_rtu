@@ -1,4 +1,5 @@
-""""Lightweight control of cheap Modbus RTU components using Python"
+"""@package cheap_modbus_rtu
+Lightweight control of cheap Modbus RTU components using Python
 """
 from .modbus_rtu_master import ModbusRtuMaster
 
@@ -17,6 +18,12 @@ class CheapModbusRelayIOModule():
     contained in the tuple returned from the "get_inputs()" method.
 
     All other methods are identical.
+
+    ==> Please see documentation of the derived classes for details:
+    * Relay1Ch
+    * Relay2Ch
+    * Relay4Ch
+    * Relay8Ch
 
     Brand name is "bestep" among others.
     """

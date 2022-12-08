@@ -4,7 +4,8 @@
 
 ### Incomplete, work-in-progress!
 
-Please also see: [Full API Documentation](docs/html/index.html)
+Please also see:  
+[API Documentation (Github Link)](https://ul-gh.github.io/cheap_modbus_rtu/html/classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_cheap_modbus_relay_i_o_module.html)  
 
 ```
 This requires Python >= 3.9 and recent version of setuptools and pip
