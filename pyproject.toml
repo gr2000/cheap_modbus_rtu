@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools >= 38.3.0", "wheel"]
+
+[project]
+name = "cheap_modbus_rtu"
+version = "0.0.0"
+description = "Lightweight control of cheap Modbus RTU components using Python"
+authors = [
+    {name="Ulrich Lukas", email="none@domain.invalid"},
+]
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)",
+    "Operating System :: POSIX :: Linux",
+]
+
