@@ -2,12 +2,21 @@
 
 ## Lightweight control of cheap Modbus RTU components using Python
 
-## Incomplete, work-in-progress!
+### Incomplete, work-in-progress!
 
+```
+This requires Python >= 3.9 and recent version of setuptools and pip
+python -m pip install --upgrade pip
+
+Install from local git sources:
+git clone https://github.com/ul-gh/cheap_modbus_rtu.git
+cd cheap_modbus_rtu
+pip install .
+```
 
 ```python
 import time
-from modbus_rtu_ul import Relay2Ch
+from cheap_modbus_rtu import Relay2Ch
 ```
 
 
@@ -20,6 +29,9 @@ Slave ID ist bei diesen Platinen voreingestellt auf 255.
 Hier ändern wir das nun auf 1: Das darf natürlich nur einmal in der Konfiguration gemacht werden, um den Flash nicht zu zerstören.
 
 In allen folgenden Initialisierungen wird man dann den Konstruktor mit der neuen slave_id aufrufen.
+
+Beschreibung des Modbus-RTU Protokolls:
+[https://ipc2u.de](https://ipc2u.de/artikel/wissenswertes/modbus-rtu-einfach-gemacht-mit-detaillierten-beschreibungen-und-beispielen/)
 
 
 ```python

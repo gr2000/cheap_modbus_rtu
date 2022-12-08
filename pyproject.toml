@@ -1,17 +1,22 @@
 [build-system]
-requires = ["setuptools >= 38.3.0", "wheel"]
+requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "cheap_modbus_rtu"
-version = "0.0.0"
 description = "Lightweight control of cheap Modbus RTU components using Python"
+readme = "README.md"
+license = {file = "LICENSE"}
 authors = [
     {name="Ulrich Lukas", email="none@domain.invalid"},
 ]
 requires-python = ">=3.9"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)",
-    "Operating System :: POSIX :: Linux",
+]
+dynamic = ["version"]
+dependencies = [
+    "pyserial",
 ]
 
+[tool.setuptools_scm]
