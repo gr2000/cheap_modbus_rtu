@@ -4,6 +4,8 @@
 
 ### Incomplete, work-in-progress!
 
+Please also see: [Full API Documentation](docs/html/index.html)
+
 ```
 This requires Python >= 3.9 and recent version of setuptools and pip
 python -m pip install --upgrade pip

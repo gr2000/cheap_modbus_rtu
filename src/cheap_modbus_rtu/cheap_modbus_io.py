@@ -2,14 +2,23 @@
 """
 from .modbus_rtu_master import ModbusRtuMaster
 
-class Relay2Ch():
-    """Control via RS-485 Modbus RTU for:
-    
-    1x Cheap two-channel serial RS-485 Modbus RTU relay PCB
-    
-    These feature additional two (only functionally isolated) digital inputs.
+class CheapModbusRelayIOModule():
+    """Control via RS-485 Modbus RTU for the affordable Modbus relay PCBs
 
-    Brand name is "bestep", there might be others.
+    These come in one, two, four, eight or more channel variants and feature
+    different numbers of additional digital IO pins.
+    
+    While the relay outputs are insulated for mains voltage application,
+    the digital IO pins are only featuring functional or low-voltage isolation,
+    some variants do not have isolated inputs at all.
+
+    The detailed implementation varies slightly between variants,
+    the difference (for the time being) is the number of input state values
+    contained in the tuple returned from the "get_inputs()" method.
+
+    All other methods are identical.
+
+    Brand name is "bestep" among others.
     """
     DI_REGISTER = 10001
     SLAVE_ID_REGISTER = 40001
@@ -27,14 +36,6 @@ class Relay2Ch():
         """Output number is 1 or 2 for the two-channel variant
         """
         self.master.set_discrete_output_register(self.slave_id, output_no, False)
-
-    def get_inputs(self) -> tuple[bool, bool]:
-        """Returns the state of the digital inputs as a tuple of booleans
-        """
-        flags_8_ch = self.master.read_discrete_input_registers(
-            self.slave_id, self.DI_REGISTER, 8
-        )
-        return flags_8_ch[0:2]
     
     def get_input(self, input_no: int) -> bool:
         """Return the state of the specified digital input
@@ -69,3 +70,95 @@ class Relay2Ch():
         )
         self.slave_id = slave_id
         return slave_id
+
+
+class Relay1Ch(CheapModbusRelayIOModule):
+    """Control via RS-485 Modbus RTU for:
+    
+    1x Serial RS-485 Modbus RTU relay PCB
+
+    ==> This is for the one-channel variant.
+
+    This variant has:
+        - one relay output and
+        - one NON-ISOLATED(!) digital input
+    """
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    def get_inputs(self) -> tuple[bool]:
+        """Returns the state of the digital inputs as a tuple of booleans
+        """
+        flags_8_ch = self.master.read_discrete_input_registers(
+            self.slave_id, self.DI_REGISTER, 8
+        )
+        return flags_8_ch[0:1]
+
+
+class Relay2Ch(CheapModbusRelayIOModule):
+    """Control via RS-485 Modbus RTU for:
+    
+    1x Serial RS-485 Modbus RTU relay PCB
+
+    ==> This is for the two-channel variant.
+
+    This variant has:
+        - two relay outputs and
+        - two functionally isolated digital inputs
+    """
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    def get_inputs(self) -> tuple[bool, bool]:
+        """Returns the state of the digital inputs as a tuple of booleans
+        """
+        flags_8_ch = self.master.read_discrete_input_registers(
+            self.slave_id, self.DI_REGISTER, 8
+        )
+        return flags_8_ch[0:2]
+
+
+class Relay4Ch(CheapModbusRelayIOModule):
+    """Control via RS-485 Modbus RTU for:
+    
+    1x Serial RS-485 Modbus RTU relay PCB
+
+    ==> This is for the four-channel variant.
+
+    This variant has:
+        - four relay outputs and
+        - four functionally isolated digital inputs
+    """
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    def get_inputs(self) -> tuple[bool, bool]:
+        """Returns the state of the digital inputs as a tuple of booleans
+        """
+        flags_8_ch = self.master.read_discrete_input_registers(
+            self.slave_id, self.DI_REGISTER, 8
+        )
+        return flags_8_ch[0:4]
+
+
+class Relay8Ch(CheapModbusRelayIOModule):
+    """Control via RS-485 Modbus RTU for:
+    
+    1x Serial RS-485 Modbus RTU relay PCB
+
+    ==> This is for the eight-channel variant.
+
+    This variant has:
+        - eight relay outputs and
+        - eight functionally isolated digital inputs
+    """
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    def get_inputs(self) -> tuple[bool, bool]:
+        """Returns the state of the digital inputs as a tuple of booleans
+        """
+        flags_8_ch = self.master.read_discrete_input_registers(
+            self.slave_id, self.DI_REGISTER, 8
+        )
+        return flags_8_ch
