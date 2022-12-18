@@ -171,10 +171,12 @@ class Relay8Ch(CheapModbusRelayIOModule):
         return flags_8_ch
 
 
-class PWMOutput3Ch():
-    """Control affordable 3-channel PWM output modules via RS-485 Modbus RTU
+class PWM8A04():
+    """Control PWM8A04 3-channel PWM output modules via RS-485 Modbus RTU
 
-    These seem to come with a pre-set slave ID of 1.
+    The PWM8A04 seems to come with a pre-set slave ID of 1.
+
+    Brand name is "eletechsup", available at https://www.eletechsup.com
 
     This is for the three-channel variant.
     """

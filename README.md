@@ -32,13 +32,13 @@ while True:
     time.sleep(0.5)
 ```
 
-### 3-Channel PWM output PCB, complete example: Set output 1 to 20 kHz, 33 % duty cycle
+### PWM8A04, 3-Channel PWM output PCB, complete example: Set output 1 to 20 kHz, 33 % duty cycle
 
 ```python
-from cheap_modbus_rtu import PWMOutput3Ch
+from cheap_modbus_rtu import PWM8A04
 
 # Slave ID for these PWM modules is pre-set to 1
-pwm = PWMOutput3Ch("/dev/ttyUSB0", slave_id=1)
+pwm = PWM8A04("/dev/ttyUSB0", slave_id=1)
 
 pwm.set_output_frequency(1, 20000)
 pwm.set_output_duty(1, 33)
