@@ -44,15 +44,7 @@ pwm.set_output_frequency(1, 20000)
 pwm.set_output_duty(1, 33)
 ```
 
-
-Nice documentation of the Modbus-RTU protocol (English):
-[https://ipc2u.com Modbus Protocol Description and Examples](https://ipc2u.com/articles/knowledge-base/modbus-rtu-made-simple-with-detailed-descriptions-and-examples/)
-
-(Same content in German) Beschreibung des Modbus-RTU Protokolls:
-[https://ipc2u.de](https://ipc2u.de/artikel/wissenswertes/modbus-rtu-einfach-gemacht-mit-detaillierten-beschreibungen-und-beispielen/)
-
-
-### Relay IO PCB: Read both inputs of the 2-Channel variant and write them directly to the relay outputs
+#### Relay IO PCB: Read both inputs of the 2-Channel variant and write them directly to the relay outputs
 
 ```python
 while True:
@@ -78,6 +70,14 @@ modbus_relay.set_slave_id(1)
 modbus_relay.get_broadcast_slave_id()
 >>>     1
 ```
+
+
+Nice documentation of the Modbus-RTU protocol (English):
+[https://ipc2u.com Modbus Protocol Description and Examples](https://ipc2u.com/articles/knowledge-base/modbus-rtu-made-simple-with-detailed-descriptions-and-examples/)
+
+(Same content in German) Beschreibung des Modbus-RTU Protokolls:
+[https://ipc2u.de](https://ipc2u.de/artikel/wissenswertes/modbus-rtu-einfach-gemacht-mit-detaillierten-beschreibungen-und-beispielen/)
+
 
 Please also see:  
 [API Documentation (Github Link)](https://ul-gh.github.io/cheap_modbus_rtu/html/classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_cheap_modbus_relay_i_o_module.html)  
