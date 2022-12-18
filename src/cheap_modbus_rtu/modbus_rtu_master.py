@@ -139,16 +139,18 @@ class ModbusRtuMaster():
         # We expect and return the bytes read from the bus.
         # Read first five bytes and check if this is an exception
         frame_in = self.serial_device.read(5)
-        if frame_in[1] & 0x80:
-            exception_code = frame_in[2]
-        else:
-            frame_in += self.serial_device.read(length_expected-5)
-            # Check length
-            if len(frame_in) < length_expected:
-                raise ModbusException(
-                    "Not enough modbus data received, maybe timeout issue..\n"
-                    f'Sent: "{frame_out.hex(" ")}"  Received: "{frame_in.hex(" ")}"'
-                )
+        if len(frame_in) == 5:
+            if frame_in[1] & 0x80:
+                length_expected = 5
+                exception_code = frame_in[2]
+            else:
+                frame_in += self.serial_device.read(length_expected - 5)
+        # Check length again
+        if len(frame_in) < length_expected:
+            raise ModbusException(
+                "Not enough modbus data received, maybe timeout issue..\n"
+                f'Sent: "{frame_out.hex(" ")}"  Received: "{frame_in.hex(" ")}"'
+            )
         # Check CRC
         if crc16(frame_in[:-2]) != frame_in[-2:]:
             raise ModbusException(

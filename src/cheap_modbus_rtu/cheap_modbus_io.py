@@ -180,9 +180,9 @@ class PWM8A04():
 
     This is for the three-channel variant.
     """
-    BROADCAST_SLAVE_ID = 0xFF # This is non-standard
     FREQ_REG_OFFSET = 40000
     DUTY_REG_OFFSET = 40112
+    BROADCAST_SLAVE_ID = 0xFF # This is non-standard
     SLAVE_ID_REGISTER = 40254
 
     def __init__(self, serial_device_name: str = None, slave_id: int = 1, **kwargs):
@@ -251,6 +251,58 @@ class PWM8A04():
         """Sends a (nonstandard) broadcast query to all devices on the bus.
     
         These PWM modules seem to use 255 as a non-standard broadcast address..
+
+        Returns the first found slave ID.
+        
+        This likely only works when only one device is attached to the bus
+        """
+        slave_id, = self.master.read_analog_holding_registers(
+            self.BROADCAST_SLAVE_ID,
+            self.SLAVE_ID_REGISTER
+        )
+        self.slave_id = slave_id
+        return slave_id
+
+
+class R4DIF08():
+    """Control R4DIF08 8-channel digital input modules via RS-485 Modbus RTU
+
+    The R4DIF08 seems to come with a pre-set slave ID of 1.
+
+    Brand name is "eletechsup", available at https://www.eletechsup.com
+
+    This is for the three-channel variant.
+    """
+    DI_REGISTER = 10001
+    BROADCAST_SLAVE_ID = 0xFF # This is non-standard
+    SLAVE_ID_REGISTER = 40255
+
+    def __init__(self, serial_device_name: str = None, slave_id: int = 1, **kwargs):
+        self.master = ModbusRtuMaster(serial_device_name, **kwargs)
+        self.slave_id = slave_id
+
+    # def get_inputs(self) -> tuple[bool, ...]:
+    #     """Returns the state of the 8 digital inputs as a tuple of booleans
+    #     """
+    #     flags_8_ch = self.master.read_discrete_input_registers(
+    #         self.slave_id, self.DI_REGISTER, 8
+    #     )
+    #     return flags_8_ch
+    
+    def set_slave_id(self, slave_id_new: int):
+        """Set the slave ID
+        """
+        self.master.set_analog_holding_register(
+            self.slave_id,
+            self.SLAVE_ID_REGISTER,
+            slave_id_new
+        )
+        self.slave_id = slave_id_new
+    
+    def get_broadcast_slave_id(self) -> int:
+        """Sends a (nonstandard) broadcast query to all devices on the bus.
+    
+        These input modules seem to use 255 as a non-standard broadcast address..
 
         Returns the first found slave ID.
         
