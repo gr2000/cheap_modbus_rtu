@@ -15,7 +15,7 @@ user@linux:~/mysrc$ cd cheap_modbus_rtu
 user@linux:~/mysrc$ pip install .
 ```
 
-### Relay IO PCB, complete example: Toggle one relay on-off in a 1-second cycle
+### Relay IO PCB: Toggle one relay on-off in a 1-second cycle
 
 ```python
 import time
@@ -32,7 +32,7 @@ while True:
     time.sleep(0.5)
 ```
 
-### PWM8A04, 3-Channel PWM output PCB, complete example: Set output 1 to 20 kHz, 33 % duty cycle
+### PWM8A04, 3-Channel PWM output PCB: Set output 1 to 20 kHz, 33 % duty cycle
 
 ```python
 from cheap_modbus_rtu import PWM8A04
