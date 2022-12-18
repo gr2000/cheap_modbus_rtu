@@ -2,6 +2,12 @@ import os
 from serial import Serial
 from .crc16_modbus import crc16
 
+class ModbusException(Exception):
+    def __init__(self, msg, exception_code=None):
+        super().__init__(msg)
+        self.exception_code = exception_code
+
+
 class ModbusRtuMaster():
     """Lightweight Modbus RTU master
 
@@ -124,24 +130,35 @@ class ModbusRtuMaster():
 
 
     def _add_crc_transmit(self, frame_out: bytes, length_expected: int) -> bytes:
+        exception_code = None
         # Append CRC
         frame_out += crc16(frame_out)
         # Discard unrelated data which might be in the read buffer
         self.serial_device.reset_input_buffer()
         self.serial_device.write(frame_out)
         # We expect and return the bytes read from the bus.
-        frame_in = self.serial_device.read(length_expected)
-        # Check length
-        if len(frame_in) < length_expected:
-            raise IOError(
-                "Not enough modbus data received, maybe timeout issue..\n"
-                f'Sent: "{frame_out.hex(" ")}"  Received: "{frame_in.hex(" ")}"'
-            )
+        # Read first five bytes and check if this is an exception
+        frame_in = self.serial_device.read(5)
+        if frame_in[1] & 0x80:
+            exception_code = frame_in[2]
+        else:
+            frame_in += self.serial_device.read(length_expected-5)
+            # Check length
+            if len(frame_in) < length_expected:
+                raise ModbusException(
+                    "Not enough modbus data received, maybe timeout issue..\n"
+                    f'Sent: "{frame_out.hex(" ")}"  Received: "{frame_in.hex(" ")}"'
+                )
         # Check CRC
         if crc16(frame_in[:-2]) != frame_in[-2:]:
-            raise IOError(
+            raise ModbusException(
                 "Read error: CRC mismatch..\n"
                 f'Sent: "{frame_out.hex(" ")}"  Received: "{frame_in.hex(" ")}"'
+            )
+        if exception_code is not None:
+            raise ModbusException(
+                f"Received Modbus exception code: 0x{exception_code:x}",
+                exception_code
             )
         if self.debug_active:
             print(f'Sent: "{frame_out.hex(" ")}"  Received: "{frame_in.hex(" ")}"')

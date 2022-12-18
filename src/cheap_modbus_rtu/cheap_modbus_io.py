@@ -4,7 +4,7 @@ Lightweight control of cheap Modbus RTU components using Python
 from .modbus_rtu_master import ModbusRtuMaster
 
 class CheapModbusRelayIOModule():
-    """Control via RS-485 Modbus RTU for the affordable Modbus relay PCBs
+    """Control affordable Modbus relay PCBs via RS-485 Modbus RTU
 
     These come in one, two, four, eight or more channel variants and feature
     different numbers of additional digital IO pins.
@@ -80,7 +80,7 @@ class CheapModbusRelayIOModule():
 
 
 class Relay1Ch(CheapModbusRelayIOModule):
-    """Control via RS-485 Modbus RTU for:
+    """Control via RS-485 Modbus RTU:
     
     1x Serial RS-485 Modbus RTU relay PCB
 
@@ -103,7 +103,7 @@ class Relay1Ch(CheapModbusRelayIOModule):
 
 
 class Relay2Ch(CheapModbusRelayIOModule):
-    """Control via RS-485 Modbus RTU for:
+    """Control via RS-485 Modbus RTU:
     
     1x Serial RS-485 Modbus RTU relay PCB
 
@@ -126,7 +126,7 @@ class Relay2Ch(CheapModbusRelayIOModule):
 
 
 class Relay4Ch(CheapModbusRelayIOModule):
-    """Control via RS-485 Modbus RTU for:
+    """Control via RS-485 Modbus RTU:
     
     1x Serial RS-485 Modbus RTU relay PCB
 
@@ -149,7 +149,7 @@ class Relay4Ch(CheapModbusRelayIOModule):
 
 
 class Relay8Ch(CheapModbusRelayIOModule):
-    """Control via RS-485 Modbus RTU for:
+    """Control via RS-485 Modbus RTU:
     
     1x Serial RS-485 Modbus RTU relay PCB
 
@@ -169,3 +169,94 @@ class Relay8Ch(CheapModbusRelayIOModule):
             self.slave_id, self.DI_REGISTER, 8
         )
         return flags_8_ch
+
+
+class PWMOutput3Ch():
+    """Control affordable 3-channel PWM output modules via RS-485 Modbus RTU
+
+    These seem to come with a pre-set slave ID of 1.
+
+    This is for the three-channel variant.
+    """
+    BROADCAST_SLAVE_ID = 0xFF # This is non-standard
+    FREQ_REG_OFFSET = 40000
+    DUTY_REG_OFFSET = 40112
+    SLAVE_ID_REGISTER = 40254
+
+    def __init__(self, serial_device_name: str = None, slave_id: int = 1, **kwargs):
+        self.master = ModbusRtuMaster(serial_device_name, **kwargs)
+        self.slave_id = slave_id
+
+    def get_output_frequency(self, output_no: int) -> int:
+        """Return the current frequency setpoint for output
+
+        @param output_no: Output number, can be 1, 2 or 3
+        @return: Frequency of PWM in Hz, valid range is 1...20000
+        """
+        frequency, = self.master.read_analog_holding_registers(
+            self.slave_id,
+            output_no + self.FREQ_REG_OFFSET
+        )
+        return frequency
+
+    def set_output_frequency(self, output_no: int, frequency: int):
+        """Set frequency for PWM output.
+
+        @param output_no: Output number, can be 1, 2 or 3
+        @param frequency: Frequency of PWM in Hz, valid range is 1...20000
+        """
+        self.master.set_analog_holding_register(
+            self.slave_id,
+            output_no + self.FREQ_REG_OFFSET,
+            frequency
+        )
+
+    def get_output_duty(self, output_no: int) -> int:
+        """Return the current PWM duty cycle setpoint value for output
+
+        @param output_no: Output number, can be 1, 2 or 3
+        @return: PWM duty cycle in percent, valid range is 0...100
+        """
+        duty, = self.master.read_analog_holding_registers(
+            self.slave_id,
+            output_no + self.DUTY_REG_OFFSET
+        )
+        return duty
+
+    def set_output_duty(self, output_no: int, duty: int):
+        """Set PWM duty cycle for output (high-active)
+
+        @param output_no: Output number, can be 1, 2 or 3
+        @param duty: PWM duty cycle in percent, valid range is 0...100
+        """
+        self.master.set_analog_holding_register(
+            self.slave_id,
+            output_no + self.DUTY_REG_OFFSET,
+            duty
+        )
+    
+    def set_slave_id(self, slave_id_new: int):
+        """Set the slave ID
+        """
+        self.master.set_analog_holding_register(
+            self.slave_id,
+            self.SLAVE_ID_REGISTER,
+            slave_id_new
+        )
+        self.slave_id = slave_id_new
+    
+    def get_broadcast_slave_id(self) -> int:
+        """Sends a (nonstandard) broadcast query to all devices on the bus.
+    
+        These PWM modules seem to use 255 as a non-standard broadcast address..
+
+        Returns the first found slave ID.
+        
+        This likely only works when only one device is attached to the bus
+        """
+        slave_id, = self.master.read_analog_holding_registers(
+            self.BROADCAST_SLAVE_ID,
+            self.SLAVE_ID_REGISTER
+        )
+        self.slave_id = slave_id
+        return slave_id

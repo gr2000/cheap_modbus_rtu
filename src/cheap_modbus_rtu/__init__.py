@@ -1,2 +1,4 @@
 from .modbus_rtu_master import ModbusRtuMaster
-from .cheap_modbus_io import Relay1Ch, Relay2Ch, Relay4Ch, Relay8Ch
+from .cheap_modbus_io import (
+    Relay1Ch, Relay2Ch, Relay4Ch, Relay8Ch, PWMOutput3Ch
+)
