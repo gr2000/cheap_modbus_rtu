@@ -68,7 +68,7 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self, st
 <tr class="memdesc:a16063a6b27ce7832b3e3109c6f2dc83d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state of the 8 digital inputs.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08.html#a16063a6b27ce7832b3e3109c6f2dc83d">More...</a><br /></td></tr>
 <tr class="separator:a16063a6b27ce7832b3e3109c6f2dc83d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49db31757f447df9b0b9d968e938d970"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08.html#a49db31757f447df9b0b9d968e938d970">set_input_level</a> (self, active_high=False, delay_enabled=True)</td></tr>
-<tr class="memdesc:a49db31757f447df9b0b9d968e938d970"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set input inverters, i.e.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08.html#a49db31757f447df9b0b9d968e938d970">More...</a><br /></td></tr>
+<tr class="memdesc:a49db31757f447df9b0b9d968e938d970"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set input inverters, or voltage level for boolean True output.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08.html#a49db31757f447df9b0b9d968e938d970">More...</a><br /></td></tr>
 <tr class="separator:a49db31757f447df9b0b9d968e938d970"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d47ad08d72b6ff3b5b4ea3158166090"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08.html#a6d47ad08d72b6ff3b5b4ea3158166090">set_slave_id</a> (self, int slave_id_new)</td></tr>
 <tr class="memdesc:a6d47ad08d72b6ff3b5b4ea3158166090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the slave ID.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08.html#a6d47ad08d72b6ff3b5b4ea3158166090">More...</a><br /></td></tr>
@@ -126,9 +126,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 <p>Sends a (nonstandard) broadcast query to all devices on the bus. </p>
 <pre class="fragment">   These PWM modules seem to use 255 as a non-standard broadcast address..
    This likely only works when only one device is attached to the bus.
+</pre> <dl class="section return"><dt>Returns</dt><dd>The first found slave ID. </dd></dl>
 
-   @return The first found slave ID.
-</pre> 
 </div>
 </div>
 <a id="a3c6bf5c8d4de6888c33ed36ea7fc76be"></a>
@@ -158,9 +157,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 </div><div class="memdoc">
 
 <p>Return the state of the specified digital input. </p>
-<pre class="fragment">   @param input_no Input number, starts counting at 1
-   @return True if input is enabled, False if disabled
-</pre> 
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input_no</td><td>Input number, starts counting at 1</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if input is enabled, False if disabled </dd></dl>
+
 </div>
 </div>
 <a id="a16063a6b27ce7832b3e3109c6f2dc83d"></a>
@@ -180,8 +184,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 </div><div class="memdoc">
 
 <p>Returns the state of the 8 digital inputs. </p>
-<pre class="fragment">   @return Tuple of 8 boolean flags, one for each input
-</pre> 
+<dl class="section return"><dt>Returns</dt><dd>Tuple of 8 boolean flags, one for each input </dd></dl>
+
 </div>
 </div>
 <a id="a49db31757f447df9b0b9d968e938d970"></a>
@@ -216,20 +220,23 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
       </table>
 </div><div class="memdoc">
 
-<p>Set input inverters, i.e. </p>
-<p>voltage level for boolean True output </p><pre class="fragment">   The module only supports setting all inputs at once, so this
+<p>Set input inverters, or voltage level for boolean True output. </p>
+<pre class="fragment">   The module only supports setting all inputs at once, so this
    applies to all eight inputs.
 
    There seems to be a delay necessary in order for the module to be
    re-configured and ready to answer queries after setting this register.
 
    This is why a 0.2 second blocking delay is activated by default.
+</pre> <dl class="section warning"><dt>Warning</dt><dd>This sets a configuration value, possibly writing directly to FLASH. So this should not be called repeatedly!</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">active_high</td><td>If set to False (default), Report True for low-level input (0 V, GND). If set to True, Report True for high-level input (&gt; VCC/2). </td></tr>
+    <tr><td class="paramname">delay_enabled</td><td>Enable 0.2 second delay if set to True (default) </td></tr>
+  </table>
+  </dd>
+</dl>
 
-   @param active_high
-       If set to False (default): Return True for low-level input (0 V, GND)
-       If set to True: Return True for high-level input (&gt; VCC/2)
-   @param delay_enabled Enable 0.2 second delay if set to True (default)
-</pre> 
 </div>
 </div>
 <a id="a6d47ad08d72b6ff3b5b4ea3158166090"></a>
@@ -259,8 +266,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 </div><div class="memdoc">
 
 <p>Set the slave ID. </p>
-<pre class="fragment">   @param slave_id_new New Modbus slave ID
-</pre> 
+<dl class="section warning"><dt>Warning</dt><dd>This sets a configuration value, possibly writing directly to FLASH. So this should not be called repeatedly!</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slave_id_new</td><td>New Modbus slave ID </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

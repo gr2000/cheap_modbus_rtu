@@ -35,15 +35,13 @@ class ModbusRtuMaster():
                                       ) -> tuple[bool, ...]:
         """Read one or more discrete (on/off) input registers ("coils")
 
-        @param slave_id Modbus Slave ID
-        @param start_register_no First register number to read
-        @param n_registers Number of registers to read
+        Args:
+            slave_id:           Modbus Slave ID
+            start_register_no:  First register number to read
+            n_registers:        Number of registers to read
 
-        @return Tuple of register values interpreted as 16-bit integers
-                if dtype == "ints" (default)
-        @return Tuple of register values each in a 16-bit bytes object
-                if dtype == "words"
-        @return bytes of register values if dtype == "raw"
+        Returns:
+            Tuple of register values as boolean flag values
         """
         # Frame starts with modbus address ("slave_id") and function code
         frame_out = bytes((slave_id, 0x02))
@@ -74,15 +72,20 @@ class ModbusRtuMaster():
                                ) -> tuple[int, ...] | tuple[bytes, ...] | bytes:
         """Read one or more value holding registers
 
-        @param slave_id Modbus Slave ID
-        @param start_register_no First register number to read
-        @param n_registers Number of registers to read
+        Args:
+            slave_id:           Modbus Slave ID
+            start_register_no:  First register number to read
+            n_registers:        Number of registers to read
+            dtype:              Configures format of return value, see below
 
-        @return Tuple of register values interpreted as 16-bit integers
-                if dtype == "ints" (default)
-        @return Tuple of register values each in a 16-bit bytes object
-                if dtype == "words"
-        @return bytes of register values if dtype == "raw"
+        Returns:
+            Tuple of register values interpreted as 16-bit integers
+            if dtype == "ints" (default)
+        Returns:
+            Tuple of register values each in a 16-bit bytes object
+            if dtype == "words"
+        Returns:
+            bytes of register values if dtype == "raw"
         """
         # Frame starts with modbus address ("slave_id") and function code
         frame_out = bytes((slave_id, 0x03))
@@ -111,15 +114,20 @@ class ModbusRtuMaster():
                              ) -> tuple[int, ...] | tuple[bytes, ...] | bytes:
         """Read one or more input read-out registers
 
-        @param slave_id Modbus Slave ID
-        @param start_register_no First register number to read
-        @param n_registers Number of registers to read
+        Args:
+            slave_id:           Modbus Slave ID
+            start_register_no:  First register number to read
+            n_registers:        Number of registers to read
+            dtype:              Configures format of return value, see below
 
-        @return Tuple of register values interpreted as 16-bit integers
-                if dtype == "ints" (default)
-        @return Tuple of register values each in a 16-bit bytes object
-                if dtype == "words"
-        @return bytes of register values if dtype == "raw"
+        Returns:
+            Tuple of register values interpreted as 16-bit integers
+            if dtype == "ints" (default)
+        Returns:
+            Tuple of register values each in a 16-bit bytes object
+            if dtype == "words"
+        Returns:
+            bytes of register values if dtype == "raw"
         """
         # Frame starts with modbus address ("slave_id") and function code
         frame_out = bytes((slave_id, 0x04))
@@ -147,9 +155,11 @@ class ModbusRtuMaster():
                                      ):
         """Set one discrete (on/off) output register ("coil")
 
-        @param slave_id Modbus Slave ID
-        @param register_no Register number to set
-        @param active Set output enabled if active == True, otherwise disable output
+        Args:
+            slave_id:       Modbus Slave ID
+            register_no:    Register number to set
+            active:         Set output enabled if active == True,
+                            otherwise disable output
         """
         # Frame starts with modbus address ("slave_id") and function code
         frame_out = bytes((slave_id, 0x05))
@@ -167,9 +177,10 @@ class ModbusRtuMaster():
                              ):
         """Set one (analog or general-purpose) 16-bit value holding register
 
-        @param slave_id Modbus Slave ID
-        @param register_no Register number to set
-        @param value Integer value to be written into 16-bit big-endian register
+        Args:
+            slave_id:       Modbus Slave ID
+            register_no:    Register number to set
+            value:          Integer value to be written into 16-bit big-endian register
         """
         # Frame starts with modbus address ("slave_id") and function code
         frame_out = bytes((slave_id, 0x06))
@@ -188,11 +199,13 @@ class ModbusRtuMaster():
                               ):
         """Set one or more (analog or general-purpose) 16-bit value holding registers
 
-        @param slave_id Modbus Slave ID
-        @param start_register_no First register number to read
-        @param values Tuple of integer values to write into registers
-        @param expect_echo_response If set to True, expect a device response which
-            is a copy of the original query, which is not standard Modbus behaviour.
+        Args:
+            slave_id:           Modbus Slave ID
+            start_register_no:  First register number to read
+            values:             Tuple of integer values to write into registers
+            expect_echo_response: If set to True, expect a device response which
+                                  is a copy of the original query, which is not
+                                  standard Modbus behaviour.
         """
         # Frame starts with modbus address ("slave_id") and function code
         frame_out = bytes((slave_id, 0x10))

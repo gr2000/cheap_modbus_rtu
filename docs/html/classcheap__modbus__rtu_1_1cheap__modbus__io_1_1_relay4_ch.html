@@ -142,8 +142,13 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 </div><div class="memdoc">
 
 <p>Disable specified output. </p>
-<pre class="fragment">   @param output_no Output number, starts counting at 1
-</pre> 
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output_no</td><td>Output number, starts counting at 1 </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a16a720c9b2d44b53f785cdd53de168a2"></a>
@@ -172,9 +177,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 
 <p>Sends a broadcast query to all devices on the bus. </p>
 <pre class="fragment">   This likely only works when only one device is attached to the bus
+</pre> <dl class="section return"><dt>Returns</dt><dd>The first found slave ID. </dd></dl>
 
-   @return The first found slave ID.
-</pre> 
 </div>
 </div>
 <a id="aeb7c5cc72d2074761da1caf38483d518"></a>
@@ -212,9 +216,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 </div><div class="memdoc">
 
 <p>Return the state of the specified digital input. </p>
-<pre class="fragment">   @param input_no Input number, starts counting at 1
-   @return True if input is enabled, False if disabled
-</pre> 
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input_no</td><td>Input number, starts counting at 1</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if input is enabled, False if disabled </dd></dl>
+
 </div>
 </div>
 <a id="a53a47a5f99d50cb5a82fa2e2192c6239"></a>
@@ -234,8 +243,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 </div><div class="memdoc">
 
 <p>Returns the state of the 4 digital inputs. </p>
-<pre class="fragment">   @return Tuple of boolean flags, one for each input
-</pre> 
+<dl class="section return"><dt>Returns</dt><dd>Tuple of boolean flags, one for each input </dd></dl>
+
 </div>
 </div>
 <a id="ab2c2e5c9b2bdbb8a06ac7d8d960fcf4a"></a>
@@ -279,9 +288,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 </div><div class="memdoc">
 
 <p>Set specified output. </p>
-<pre class="fragment">   @param output_no Output number, starts counting at 1
-   @param active Enable output if active == True (default), otherwise disable output
-</pre> 
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output_no</td><td>Output number, starts counting at 1 </td></tr>
+    <tr><td class="paramname">active</td><td>Enable output if active == True (default) Disable output if active == False </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ac12d929ec3018f61ade23c22f86b26d1"></a>
@@ -319,8 +333,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 </div><div class="memdoc">
 
 <p>Set the slave ID. </p>
-<pre class="fragment">   @param slave_id_new New Modbus slave ID
-</pre> 
+<dl class="section warning"><dt>Warning</dt><dd>This sets a configuration value, possibly writing directly to FLASH. So this should not be called repeatedly!</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slave_id_new</td><td>New Modbus slave ID </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

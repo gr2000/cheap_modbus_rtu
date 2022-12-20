@@ -131,16 +131,16 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Read one or more discrete (on/off) input registers ("coils") </p>
-<pre class="fragment">   @param slave_id Modbus Slave ID
-   @param start_register_no First register number to read
-   @param n_registers Number of registers to read
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slave_id</td><td>Modbus Slave ID </td></tr>
+    <tr><td class="paramname">start_register_no</td><td>First register number to read </td></tr>
+    <tr><td class="paramname">n_registers</td><td>Number of registers to read</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Tuple of register values as boolean flag values </dd></dl>
 
-   @return Tuple of register values interpreted as 16-bit integers
-           if dtype == "ints" (default)
-   @return Tuple of register values each in a 16-bit bytes object
-           if dtype == "words"
-   @return bytes of register values if dtype == "raw"
-</pre> 
 </div>
 </div>
 <a id="a00c5181a0a4597b8d98940128c197c98"></a>
@@ -188,16 +188,21 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Read one or more value holding registers. </p>
-<pre class="fragment">   @param slave_id Modbus Slave ID
-   @param start_register_no First register number to read
-   @param n_registers Number of registers to read
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slave_id</td><td>Modbus Slave ID </td></tr>
+    <tr><td class="paramname">start_register_no</td><td>First register number to read </td></tr>
+    <tr><td class="paramname">n_registers</td><td>Number of registers to read </td></tr>
+    <tr><td class="paramname">dtype</td><td>Configures format of return value, see below</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Tuple of register values interpreted as 16-bit integers if dtype == "ints" (default) </dd>
+<dd>
+Tuple of register values each in a 16-bit bytes object if dtype == "words" </dd>
+<dd>
+bytes of register values if dtype == "raw" </dd></dl>
 
-   @return Tuple of register values interpreted as 16-bit integers
-           if dtype == "ints" (default)
-   @return Tuple of register values each in a 16-bit bytes object
-           if dtype == "words"
-   @return bytes of register values if dtype == "raw"
-</pre> 
 </div>
 </div>
 <a id="abde84b6004021fe849e485d193921bbe"></a>
@@ -245,16 +250,21 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Read one or more input read-out registers. </p>
-<pre class="fragment">   @param slave_id Modbus Slave ID
-   @param start_register_no First register number to read
-   @param n_registers Number of registers to read
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slave_id</td><td>Modbus Slave ID </td></tr>
+    <tr><td class="paramname">start_register_no</td><td>First register number to read </td></tr>
+    <tr><td class="paramname">n_registers</td><td>Number of registers to read </td></tr>
+    <tr><td class="paramname">dtype</td><td>Configures format of return value, see below</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Tuple of register values interpreted as 16-bit integers if dtype == "ints" (default) </dd>
+<dd>
+Tuple of register values each in a 16-bit bytes object if dtype == "words" </dd>
+<dd>
+bytes of register values if dtype == "raw" </dd></dl>
 
-   @return Tuple of register values interpreted as 16-bit integers
-           if dtype == "ints" (default)
-   @return Tuple of register values each in a 16-bit bytes object
-           if dtype == "words"
-   @return bytes of register values if dtype == "raw"
-</pre> 
 </div>
 </div>
 <a id="a1622b25bdb5d2c5bc0b1a1d755af8761"></a>
@@ -297,10 +307,15 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set one discrete (on/off) output register ("coil") </p>
-<pre class="fragment">   @param slave_id Modbus Slave ID
-   @param register_no Register number to set
-   @param active Set output enabled if active == True, otherwise disable output
-</pre> 
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slave_id</td><td>Modbus Slave ID </td></tr>
+    <tr><td class="paramname">register_no</td><td>Register number to set </td></tr>
+    <tr><td class="paramname">active</td><td>Set output enabled if active == True, otherwise disable output </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ace306b5fa580315fed1a4acb97b2077a"></a>
@@ -342,10 +357,15 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set one (analog or general-purpose) 16-bit value holding register. </p>
-<pre class="fragment">   @param slave_id Modbus Slave ID
-   @param register_no Register number to set
-   @param value Integer value to be written into 16-bit big-endian register
-</pre> 
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slave_id</td><td>Modbus Slave ID </td></tr>
+    <tr><td class="paramname">register_no</td><td>Register number to set </td></tr>
+    <tr><td class="paramname">value</td><td>Integer value to be written into 16-bit big-endian register </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a16cbf5758238522b23b803a93cd43f42"></a>
@@ -393,12 +413,16 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set one or more (analog or general-purpose) 16-bit value holding registers. </p>
-<pre class="fragment">   @param slave_id Modbus Slave ID
-   @param start_register_no First register number to read
-   @param values Tuple of integer values to write into registers
-   @param expect_echo_response If set to True, expect a device response which
-       is a copy of the original query, which is not standard Modbus behaviour.
-</pre> 
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slave_id</td><td>Modbus Slave ID </td></tr>
+    <tr><td class="paramname">start_register_no</td><td>First register number to read </td></tr>
+    <tr><td class="paramname">values</td><td>Tuple of integer values to write into registers </td></tr>
+    <tr><td class="paramname">expect_echo_response</td><td>If set to True, expect a device response which is a copy of the original query, which is not standard Modbus behaviour. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

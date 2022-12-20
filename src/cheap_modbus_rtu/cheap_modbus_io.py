@@ -38,23 +38,29 @@ class CheapModbusRelayIOModule():
     def set_output(self, output_no: int, active: bool = True):
         """Set specified output
 
-        @param output_no Output number, starts counting at 1
-        @param active Enable output if active == True (default), otherwise disable output
+        Args:
+            output_no:  Output number, starts counting at 1
+            active:     Enable output if active == True (default)
+                        Disable output if active == False
         """
         self.master.set_discrete_output_register(self.slave_id, output_no, active)
     
     def clear_output(self, output_no: int):
         """Disable specified output
 
-        @param output_no Output number, starts counting at 1
+        Args:
+            output_no:  Output number, starts counting at 1
         """
         self.master.set_discrete_output_register(self.slave_id, output_no, False)
     
     def get_input(self, input_no: int) -> bool:
         """Return the state of the specified digital input
 
-        @param input_no Input number, starts counting at 1
-        @return True if input is enabled, False if disabled
+        Args:
+            input_no:   Input number, starts counting at 1
+
+        Returns:
+            True if input is enabled, False if disabled
         """
         flags_8_ch = self.master.read_discrete_input_registers(
             self.slave_id, self.DI_REGISTER, 8
@@ -64,7 +70,12 @@ class CheapModbusRelayIOModule():
     def set_slave_id(self, slave_id_new: int):
         """Set the slave ID
 
-        @param slave_id_new New Modbus slave ID
+        Warning:
+            This sets a configuration value, possibly writing directly to FLASH.
+            So this should not be called repeatedly!
+
+        Args:
+            slave_id_new:   New Modbus slave ID
         """
         self.master.set_holding_registers(
             self.slave_id,
@@ -79,7 +90,8 @@ class CheapModbusRelayIOModule():
         
         This likely only works when only one device is attached to the bus
 
-        @return The first found slave ID.
+        Returns:
+            The first found slave ID.
         """
         slave_id, = self.master.read_holding_registers(
             0, self.SLAVE_ID_REGISTER, 1
@@ -105,7 +117,8 @@ class Relay1Ch(CheapModbusRelayIOModule):
     def get_input(self) -> bool:
         """Returns the state of the digital input
 
-        @return True if input is enabled, False if disabled
+        Returns:
+            True if input is enabled, False if disabled
         """
         enabled, = self.master.read_discrete_input_registers(
             self.slave_id, self.DI_REGISTER, 8
@@ -130,7 +143,8 @@ class Relay2Ch(CheapModbusRelayIOModule):
     def get_inputs(self) -> tuple[bool, bool]:
         """Returns the state of the 2 digital inputs
 
-        @return Tuple of boolean flags, one for each input
+        Returns:
+            Tuple of boolean flags, one for each input
         """
         flags_8_ch = self.master.read_discrete_input_registers(
             self.slave_id, self.DI_REGISTER, 8
@@ -155,7 +169,8 @@ class Relay4Ch(CheapModbusRelayIOModule):
     def get_inputs(self) -> tuple[bool, bool]:
         """Returns the state of the 4 digital inputs
 
-        @return Tuple of boolean flags, one for each input
+        Returns:
+            Tuple of boolean flags, one for each input
         """
         flags_8_ch = self.master.read_discrete_input_registers(
             self.slave_id, self.DI_REGISTER, 8
@@ -180,7 +195,8 @@ class Relay8Ch(CheapModbusRelayIOModule):
     def get_inputs(self) -> tuple[bool, ...]:
         """Returns the state of the 8 digital inputs
 
-        @return Tuple of boolean flags, one for each input
+        Returns:
+            Tuple of boolean flags, one for each input
         """
         flags_8_ch = self.master.read_discrete_input_registers(
             self.slave_id, self.DI_REGISTER, 8
@@ -209,8 +225,11 @@ class PWM8A04():
     def get_output_frequency(self, output_no: int) -> int:
         """Return the current frequency setpoint for output
 
-        @param output_no Output number, can be 1, 2 or 3
-        @return Frequency of PWM in Hz, valid range is 1...20000
+        Args:
+            output_no:  Output number, can be 1, 2 or 3
+
+        Returns:
+            Frequency of PWM in Hz, valid range is 1...20000
         """
         frequency, = self.master.read_holding_registers(
             self.slave_id,
@@ -221,8 +240,9 @@ class PWM8A04():
     def set_output_frequency(self, output_no: int, frequency: int):
         """Set frequency for PWM output.
 
-        @param output_no Output number, can be 1, 2 or 3
-        @param frequency Frequency of PWM in Hz, valid range is 1...20000
+        Args:
+            output_no:  Output number, can be 1, 2 or 3
+            frequency:  Frequency of PWM in Hz, valid range is 1...20000
         """
         self.master.set_holding_register(
             self.slave_id,
@@ -233,8 +253,11 @@ class PWM8A04():
     def get_output_duty(self, output_no: int) -> int:
         """Return the current PWM duty cycle setpoint value for output
 
-        @param output_no Output number, can be 1, 2 or 3
-        @return PWM duty cycle in percent, valid range is 0...100
+        Args:
+            output_no:  Output number, can be 1, 2 or 3
+
+        Returns:
+            PWM duty cycle in percent, valid range is 0...100
         """
         duty, = self.master.read_holding_registers(
             self.slave_id,
@@ -245,8 +268,9 @@ class PWM8A04():
     def set_output_duty(self, output_no: int, duty: int):
         """Set PWM duty cycle for output (high-active)
 
-        @param output_no Output number, can be 1, 2 or 3
-        @param duty PWM duty cycle in percent, valid range is 0...100
+        Args:
+            output_no:  Output number, can be 1, 2 or 3
+            duty:       PWM duty cycle in percent, valid range is 0...100
         """
         self.master.set_holding_register(
             self.slave_id,
@@ -257,7 +281,12 @@ class PWM8A04():
     def set_slave_id(self, slave_id_new: int):
         """Set the slave ID
 
-        @param slave_id_new New Modbus slave ID
+        Warning:
+            This sets a configuration value, possibly writing directly to FLASH.
+            So this should not be called repeatedly!
+
+        Args:
+            slave_id_new:   New Modbus slave ID
         """
         self.master.set_holding_register(
             self.slave_id,
@@ -272,7 +301,8 @@ class PWM8A04():
         These PWM modules seem to use 255 as a non-standard broadcast address..
         This likely only works when only one device is attached to the bus.
 
-        @return The first found slave ID.
+        Returns:
+            The first found slave ID.
         """
         slave_id, = self.master.read_holding_registers(
             self.BROADCAST_SLAVE_ID,
@@ -303,8 +333,11 @@ class R4DIF08():
     def get_input(self, input_no: int) -> bool:
         """Return the state of the specified digital input
 
-        @param input_no Input number, starts counting at 1
-        @return True if input is enabled, False if disabled
+        Args:
+            input_no:   Input number, starts counting at 1
+
+        Returns:
+            True if input is enabled, False if disabled
         """
         reg_val = self.master.read_holding_registers(
             self.slave_id, self.INPUT_REG_OFFSET+1, 1, dtype="raw"
@@ -314,7 +347,8 @@ class R4DIF08():
     def get_inputs(self) -> tuple[bool, ...]:
         """Returns the state of the 8 digital inputs
 
-        @return Tuple of 8 boolean flags, one for each input
+        Returns:
+            Tuple of 8 boolean flags, one for each input
         """
         reg_vals = self.master.read_holding_registers(
             self.slave_id, self.INPUT_REG_OFFSET+1, 8, dtype="words"
@@ -322,7 +356,7 @@ class R4DIF08():
         return tuple(bool(reg_val[1]) for reg_val in reg_vals)
 
     def set_input_level(self, active_high=False, delay_enabled=True):
-        """Set input inverters, i.e. voltage level for boolean True output
+        """Set input inverters, or voltage level for boolean True output
 
         The module only supports setting all inputs at once, so this
         applies to all eight inputs.
@@ -332,24 +366,31 @@ class R4DIF08():
 
         This is why a 0.2 second blocking delay is activated by default.
 
-        Important: This sets a configuration value, possibly writing directly
-                   to FLASH. So this should not be called repeatedly!
-                
+        Warning:
+            This sets a configuration value, possibly writing directly to FLASH.
+            So this should not be called repeatedly!
+
         
-        @param active_high
-            If set to False (default): Return True for low-level input (0 V, GND)
-            If set to True: Return True for high-level input (> VCC/2)
-        @param delay_enabled Enable 0.2 second delay if set to True (default)
+        Args:
+            active_high:    If set to False (default), Report True for low-level input (0 V, GND).
+                            If set to True, Report True for high-level input (> VCC/2).
+            delay_enabled:  Enable 0.2 second delay if set to True (default)
         """
         self.master.set_holding_register(
             self.slave_id, self.INPUT_CONF_REGISTER, 0x0001 if active_high else 0x0000
         )
-        time.sleep(0.2)
+        if delay_enabled:
+            time.sleep(0.2)
     
     def set_slave_id(self, slave_id_new: int):
         """Set the slave ID
 
-        @param slave_id_new New Modbus slave ID
+        Warning:
+            This sets a configuration value, possibly writing directly to FLASH.
+            So this should not be called repeatedly!
+
+        Args:
+            slave_id_new:   New Modbus slave ID
         """
         self.master.set_holding_register(
             self.slave_id,
@@ -364,7 +405,8 @@ class R4DIF08():
         These PWM modules seem to use 255 as a non-standard broadcast address..
         This likely only works when only one device is attached to the bus.
 
-        @return The first found slave ID.
+        Returns:
+            The first found slave ID.
         """
         slave_id, = self.master.read_holding_registers(
             self.BROADCAST_SLAVE_ID,

@@ -129,9 +129,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 <p>Sends a (nonstandard) broadcast query to all devices on the bus. </p>
 <pre class="fragment">   These PWM modules seem to use 255 as a non-standard broadcast address..
    This likely only works when only one device is attached to the bus.
+</pre> <dl class="section return"><dt>Returns</dt><dd>The first found slave ID. </dd></dl>
 
-   @return The first found slave ID.
-</pre> 
 </div>
 </div>
 <a id="a170af5968968510ca3b777d4448c220e"></a>
@@ -161,9 +160,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 </div><div class="memdoc">
 
 <p>Return the current PWM duty cycle setpoint value for output. </p>
-<pre class="fragment">   @param output_no Output number, can be 1, 2 or 3
-   @return PWM duty cycle in percent, valid range is 0...100
-</pre> 
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output_no</td><td>Output number, can be 1, 2 or 3</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>PWM duty cycle in percent, valid range is 0...100 </dd></dl>
+
 </div>
 </div>
 <a id="a2659b6bd8256c8c09e22275af24101af"></a>
@@ -193,9 +197,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 </div><div class="memdoc">
 
 <p>Return the current frequency setpoint for output. </p>
-<pre class="fragment">   @param output_no Output number, can be 1, 2 or 3
-   @return Frequency of PWM in Hz, valid range is 1...20000
-</pre> 
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output_no</td><td>Output number, can be 1, 2 or 3</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Frequency of PWM in Hz, valid range is 1...20000 </dd></dl>
+
 </div>
 </div>
 <a id="a57a3bc6f56435e4585a5a61dff942c4c"></a>
@@ -231,9 +240,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 </div><div class="memdoc">
 
 <p>Set PWM duty cycle for output (high-active) </p>
-<pre class="fragment">   @param output_no Output number, can be 1, 2 or 3
-   @param duty PWM duty cycle in percent, valid range is 0...100
-</pre> 
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output_no</td><td>Output number, can be 1, 2 or 3 </td></tr>
+    <tr><td class="paramname">duty</td><td>PWM duty cycle in percent, valid range is 0...100 </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ab5f4c74ee31ac5f53a06bb2a9b5175af"></a>
@@ -269,9 +283,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 </div><div class="memdoc">
 
 <p>Set frequency for PWM output. </p>
-<pre class="fragment">   @param output_no Output number, can be 1, 2 or 3
-   @param frequency Frequency of PWM in Hz, valid range is 1...20000
-</pre> 
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output_no</td><td>Output number, can be 1, 2 or 3 </td></tr>
+    <tr><td class="paramname">frequency</td><td>Frequency of PWM in Hz, valid range is 1...20000 </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a60ebd76c77bad751497596eac33bd1e3"></a>
@@ -301,8 +320,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 </div><div class="memdoc">
 
 <p>Set the slave ID. </p>
-<pre class="fragment">   @param slave_id_new New Modbus slave ID
-</pre> 
+<dl class="section warning"><dt>Warning</dt><dd>This sets a configuration value, possibly writing directly to FLASH. So this should not be called repeatedly!</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slave_id_new</td><td>New Modbus slave ID </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

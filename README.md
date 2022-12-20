@@ -92,4 +92,4 @@ Nice documentation of the Modbus-RTU protocol (English):
 
 
 Please also see:  
-[API Documentation (Github Link)](https://ul-gh.github.io/cheap_modbus_rtu/html/classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_cheap_modbus_relay_i_o_module.html)  
+[API Documentation (Github Link)](https://ul-gh.github.io/cheap_modbus_rtu/html/annotated.html)  
