@@ -68,7 +68,7 @@ class ModbusRtuMaster():
                                slave_id: int,
                                start_register_no: int = 40001,
                                n_registers: int = 1,
-                               dtype: str = "uints"
+                               dtype: str = "uint16"
                                ) -> tuple[int, ...] | tuple[bytes, ...] | bytes:
         """Read one or more value holding registers
 
@@ -80,10 +80,10 @@ class ModbusRtuMaster():
 
         Returns:
             Tuple of register values interpreted as 16-bit integers
-            if dtype == "uints" (default)
+            if dtype == "uint16" (default)
         Returns:
             Tuple of register values interpreted as 16-bit signed integers
-            if dtype == "ints"
+            if dtype == "int16"
         Returns:
             Tuple of register values each in a 16-bit bytes object
             if dtype == "words"
@@ -102,10 +102,10 @@ class ModbusRtuMaster():
         frame_in = self._add_crc_transmit(frame_out, 5 + n_payload_bytes)
         if dtype == "raw":
             return frame_in[3:3+n_payload_bytes]
-        elif dtype == "uints":
+        elif dtype == "uint16":
             payload_words = (frame_in[i:i+2] for i in range(3, 3+n_payload_bytes, 2))
             return tuple(int.from_bytes(word, "big") for word in payload_words)
-        elif dtype == "ints":
+        elif dtype == "int16":
             payload_words = (frame_in[i:i+2] for i in range(3, 3+n_payload_bytes, 2))
             return tuple(int.from_bytes(word, "big", True) for word in payload_words)
         elif dtype == "words":
@@ -116,7 +116,7 @@ class ModbusRtuMaster():
                              slave_id: int,
                              start_register_no: int = 30001,
                              n_registers: int = 1,
-                             dtype: str = "uints"
+                             dtype: str = "uint16"
                              ) -> tuple[int, ...] | tuple[bytes, ...] | bytes:
         """Read one or more input read-out registers
 
@@ -128,10 +128,10 @@ class ModbusRtuMaster():
 
         Returns:
             Tuple of register values interpreted as 16-bit unsigned integers
-            if dtype == "uints" (default)
+            if dtype == "uint16" (default)
         Returns:
             Tuple of register values interpreted as 16-bit signed integers
-            if dtype == "ints"
+            if dtype == "int16"
         Returns:
             Tuple of register values each in a 16-bit bytes object
             if dtype == "words"
@@ -150,10 +150,10 @@ class ModbusRtuMaster():
         frame_in = self._add_crc_transmit(frame_out, 5 + n_payload_bytes)
         if dtype == "raw":
             return frame_in[3:3+n_payload_bytes]
-        elif dtype == "uints":
+        elif dtype == "uint16":
             payload_words = (frame_in[i:i+2] for i in range(3, 3+n_payload_bytes, 2))
             return tuple(int.from_bytes(word, "big") for word in payload_words)
-        elif dtype == "ints":
+        elif dtype == "int16":
             payload_words = (frame_in[i:i+2] for i in range(3, 3+n_payload_bytes, 2))
             return tuple(int.from_bytes(word, "big", True) for word in payload_words)
         elif dtype == "words":
