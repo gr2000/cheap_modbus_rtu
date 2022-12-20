@@ -1,6 +1,6 @@
 import os
 from serial import Serial
-from .crc16_modbus import crc16
+from .crc16_modbus import crc16_lut
 
 class ModbusException(Exception):
     def __init__(self, msg, exception_code=None):
@@ -245,7 +245,7 @@ class ModbusRtuMaster():
     def _add_crc_transmit(self, frame_out: bytes, length_expected: int) -> bytes:
         exception_code = None
         # Append CRC
-        frame_out += crc16(frame_out)
+        frame_out += crc16_lut(frame_out)
         # Discard unrelated data which might be in the read buffer
         self.serial_device.reset_input_buffer()
         self.serial_device.write(frame_out)
@@ -265,7 +265,7 @@ class ModbusRtuMaster():
                 f'Sent: "{frame_out.hex(" ")}"  Received: "{frame_in.hex(" ")}"'
             )
         # Check CRC
-        if crc16(frame_in[:-2]) != frame_in[-2:]:
+        if crc16_lut(frame_in[:-2]) != frame_in[-2:]:
             raise ModbusException(
                 "Read error: CRC mismatch..\n"
                 f'Sent: "{frame_out.hex(" ")}"  Received: "{frame_in.hex(" ")}"'
