@@ -15,7 +15,7 @@ user@linux:~/mysrc$ cd cheap_modbus_rtu
 user@linux:~/mysrc$ pip install .
 ```
 
-### R4DIF08, 8-Channel digital input PCB: Configure input inverters and read all eight inputs
+### R4DIF08, 8-Channel digital input PCB: Read all eight inputs
 
 ```python
 from cheap_modbus_rtu import R4DIF08
@@ -23,7 +23,6 @@ from cheap_modbus_rtu import R4DIF08
 # Slave ID for these modules is pre-set to 1
 input_module = R4DIF08("/dev/ttyUSB0", slave_id=1)
 
-input_module.set_input_level(active_high=True)
 inputs = input_module.get_inputs()
 print(inputs)
 ```
@@ -32,11 +31,11 @@ print(inputs)
 
 ```python
 import time
-# Also works with the multi-channel variants
-from cheap_modbus_rtu import Relay1Ch
+# Also works with the other multi-channel variants
+from cheap_modbus_rtu import Relay2Ch
 
 # Slave ID for these modules is pre-set to 255
-modbus_relay = Relay1Ch("/dev/ttyUSB0", slave_id=255)
+modbus_relay = Relay2Ch("/dev/ttyUSB0", slave_id=255)
 
 while True:
     modbus_relay.set_output(1, True)

@@ -331,6 +331,10 @@ class R4DIF08():
         re-configured and ready to answer queries after setting this register.
 
         This is why a 0.2 second blocking delay is activated by default.
+
+        Important: This sets a configuration value, possibly writing directly
+                   to FLASH. So this should not be called repeatedly!
+                
         
         @param active_high
             If set to False (default): Return True for low-level input (0 V, GND)
