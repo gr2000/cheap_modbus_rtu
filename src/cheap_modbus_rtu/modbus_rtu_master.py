@@ -68,7 +68,7 @@ class ModbusRtuMaster():
                                slave_id: int,
                                start_register_no: int = 40001,
                                n_registers: int = 1,
-                               dtype: str = "ints"
+                               dtype: str = "uints"
                                ) -> tuple[int, ...] | tuple[bytes, ...] | bytes:
         """Read one or more value holding registers
 
@@ -80,7 +80,10 @@ class ModbusRtuMaster():
 
         Returns:
             Tuple of register values interpreted as 16-bit integers
-            if dtype == "ints" (default)
+            if dtype == "uints" (default)
+        Returns:
+            Tuple of register values interpreted as 16-bit signed integers
+            if dtype == "ints"
         Returns:
             Tuple of register values each in a 16-bit bytes object
             if dtype == "words"
@@ -99,9 +102,12 @@ class ModbusRtuMaster():
         frame_in = self._add_crc_transmit(frame_out, 5 + n_payload_bytes)
         if dtype == "raw":
             return frame_in[3:3+n_payload_bytes]
-        elif dtype == "ints":
+        elif dtype == "uints":
             payload_words = (frame_in[i:i+2] for i in range(3, 3+n_payload_bytes, 2))
             return tuple(int.from_bytes(word, "big") for word in payload_words)
+        elif dtype == "ints":
+            payload_words = (frame_in[i:i+2] for i in range(3, 3+n_payload_bytes, 2))
+            return tuple(int.from_bytes(word, "big", True) for word in payload_words)
         elif dtype == "words":
             return tuple(frame_in[i:i+2] for i in range(3, 3+n_payload_bytes, 2))
 
@@ -110,7 +116,7 @@ class ModbusRtuMaster():
                              slave_id: int,
                              start_register_no: int = 30001,
                              n_registers: int = 1,
-                             dtype: str = "ints"
+                             dtype: str = "uints"
                              ) -> tuple[int, ...] | tuple[bytes, ...] | bytes:
         """Read one or more input read-out registers
 
@@ -121,8 +127,11 @@ class ModbusRtuMaster():
             dtype:              Configures format of return value, see below
 
         Returns:
-            Tuple of register values interpreted as 16-bit integers
-            if dtype == "ints" (default)
+            Tuple of register values interpreted as 16-bit unsigned integers
+            if dtype == "uints" (default)
+        Returns:
+            Tuple of register values interpreted as 16-bit signed integers
+            if dtype == "ints"
         Returns:
             Tuple of register values each in a 16-bit bytes object
             if dtype == "words"
@@ -141,9 +150,12 @@ class ModbusRtuMaster():
         frame_in = self._add_crc_transmit(frame_out, 5 + n_payload_bytes)
         if dtype == "raw":
             return frame_in[3:3+n_payload_bytes]
-        elif dtype == "ints":
+        elif dtype == "uints":
             payload_words = (frame_in[i:i+2] for i in range(3, 3+n_payload_bytes, 2))
             return tuple(int.from_bytes(word, "big") for word in payload_words)
+        elif dtype == "ints":
+            payload_words = (frame_in[i:i+2] for i in range(3, 3+n_payload_bytes, 2))
+            return tuple(int.from_bytes(word, "big", True) for word in payload_words)
         elif dtype == "words":
             return tuple(frame_in[i:i+2] for i in range(3, 3+n_payload_bytes, 2))
 
@@ -180,14 +192,15 @@ class ModbusRtuMaster():
         Args:
             slave_id:       Modbus Slave ID
             register_no:    Register number to set
-            value:          Integer value to be written into 16-bit big-endian register
+            value:          Integer value to be written into 16-bit big-endian
+                            register.
         """
         # Frame starts with modbus address ("slave_id") and function code
         frame_out = bytes((slave_id, 0x06))
         # Holding register numbers have a register offset of 40001 which is subtracted.
         frame_out += int.to_bytes(register_no-40001, 2, "big")
         # Append data
-        frame_out += int.to_bytes(value, 2, "big")
+        frame_out += int.to_bytes(value, 2, "big", value<0)
         self._add_crc_transmit(frame_out, 8)
 
 
@@ -218,7 +231,7 @@ class ModbusRtuMaster():
         frame_out += int.to_bytes(n_registers*2, 1, "big")
         # Append data
         for value in values:
-            frame_out += int.to_bytes(value, 2, "big")
+            frame_out += int.to_bytes(value, 2, "big", value<0)
         # According to the standard, funciton code 16 should return 8 bytes,
         # omitting the originally sent values and number of bytes.
         # Some hardware devices however return an echo response with as many
