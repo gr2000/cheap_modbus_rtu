@@ -60,21 +60,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abcc8fa94c65caaa85a409acd4288cdb7"><td class="memItemLeft" align="right" valign="top"><a id="abcc8fa94c65caaa85a409acd4288cdb7"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self, str device_name=None, timeout=1, debug_active=False, **kwargs)</td></tr>
 <tr class="separator:abcc8fa94c65caaa85a409acd4288cdb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe7422e9d9b860f66dc112a3d10bb74f"><td class="memItemLeft" align="right" valign="top"><a id="abe7422e9d9b860f66dc112a3d10bb74f"></a>
-tuple[bool,...]&#160;</td><td class="memItemRight" valign="bottom"><b>read_discrete_input_registers</b> (self, int slave_id, int start_register_no=10001, int n_registers=8)</td></tr>
+<tr class="memitem:abe7422e9d9b860f66dc112a3d10bb74f"><td class="memItemLeft" align="right" valign="top">tuple[bool,...]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#abe7422e9d9b860f66dc112a3d10bb74f">read_discrete_input_registers</a> (self, int slave_id, int start_register_no=10001, int n_registers=8)</td></tr>
+<tr class="memdesc:abe7422e9d9b860f66dc112a3d10bb74f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read one or more discrete (on/off) input registers ("coils")  <a href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#abe7422e9d9b860f66dc112a3d10bb74f">More...</a><br /></td></tr>
 <tr class="separator:abe7422e9d9b860f66dc112a3d10bb74f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaca66d6328a281d3641eb447721c5a7d"><td class="memItemLeft" align="right" valign="top"><a id="aaca66d6328a281d3641eb447721c5a7d"></a>
-tuple[int,...]&#160;</td><td class="memItemRight" valign="bottom"><b>read_analog_holding_registers</b> (self, int slave_id, int start_register_no=40001, int n_registers=1)</td></tr>
-<tr class="separator:aaca66d6328a281d3641eb447721c5a7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1622b25bdb5d2c5bc0b1a1d755af8761"><td class="memItemLeft" align="right" valign="top"><a id="a1622b25bdb5d2c5bc0b1a1d755af8761"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>set_discrete_output_register</b> (self, int slave_id, int register_no, bool active)</td></tr>
+<tr class="memitem:a00c5181a0a4597b8d98940128c197c98"><td class="memItemLeft" align="right" valign="top">tuple[int,...]|tuple[bytes,...]|bytes&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#a00c5181a0a4597b8d98940128c197c98">read_holding_registers</a> (self, int slave_id, int start_register_no=40001, int n_registers=1, str dtype=&quot;ints&quot;)</td></tr>
+<tr class="memdesc:a00c5181a0a4597b8d98940128c197c98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read one or more value holding registers.  <a href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#a00c5181a0a4597b8d98940128c197c98">More...</a><br /></td></tr>
+<tr class="separator:a00c5181a0a4597b8d98940128c197c98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abde84b6004021fe849e485d193921bbe"><td class="memItemLeft" align="right" valign="top">tuple[int,...]|tuple[bytes,...]|bytes&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#abde84b6004021fe849e485d193921bbe">read_input_registers</a> (self, int slave_id, int start_register_no=30001, int n_registers=1, str dtype=&quot;ints&quot;)</td></tr>
+<tr class="memdesc:abde84b6004021fe849e485d193921bbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read one or more input read-out registers.  <a href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#abde84b6004021fe849e485d193921bbe">More...</a><br /></td></tr>
+<tr class="separator:abde84b6004021fe849e485d193921bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1622b25bdb5d2c5bc0b1a1d755af8761"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#a1622b25bdb5d2c5bc0b1a1d755af8761">set_discrete_output_register</a> (self, int slave_id, int register_no, bool active)</td></tr>
+<tr class="memdesc:a1622b25bdb5d2c5bc0b1a1d755af8761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set one discrete (on/off) output register ("coil")  <a href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#a1622b25bdb5d2c5bc0b1a1d755af8761">More...</a><br /></td></tr>
 <tr class="separator:a1622b25bdb5d2c5bc0b1a1d755af8761"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdae5ffe172267df72acaef5bdb4d71e"><td class="memItemLeft" align="right" valign="top"><a id="afdae5ffe172267df72acaef5bdb4d71e"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>set_analog_holding_register</b> (self, int slave_id, int register_no=40001, int value=0x0000)</td></tr>
-<tr class="separator:afdae5ffe172267df72acaef5bdb4d71e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc2606c378d4cf4ebe37e0b811eb492c"><td class="memItemLeft" align="right" valign="top"><a id="abc2606c378d4cf4ebe37e0b811eb492c"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>set_analog_holding_registers</b> (self, int slave_id, int start_register_no, tuple[int,...] values, bool expect_echo_response=False)</td></tr>
-<tr class="separator:abc2606c378d4cf4ebe37e0b811eb492c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace306b5fa580315fed1a4acb97b2077a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#ace306b5fa580315fed1a4acb97b2077a">set_holding_register</a> (self, int slave_id, int register_no=40001, int value=0x0000)</td></tr>
+<tr class="memdesc:ace306b5fa580315fed1a4acb97b2077a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set one (analog or general-purpose) 16-bit value holding register.  <a href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#ace306b5fa580315fed1a4acb97b2077a">More...</a><br /></td></tr>
+<tr class="separator:ace306b5fa580315fed1a4acb97b2077a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16cbf5758238522b23b803a93cd43f42"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#a16cbf5758238522b23b803a93cd43f42">set_holding_registers</a> (self, int slave_id, int start_register_no, tuple[int,...] values, bool expect_echo_response=False)</td></tr>
+<tr class="memdesc:a16cbf5758238522b23b803a93cd43f42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set one or more (analog or general-purpose) 16-bit value holding registers.  <a href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#a16cbf5758238522b23b803a93cd43f42">More...</a><br /></td></tr>
+<tr class="separator:a16cbf5758238522b23b803a93cd43f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -88,7 +91,317 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Lightweight Modbus RTU master. </p>
 <p>2022-12-07 Ulrich Lukas </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="abe7422e9d9b860f66dc112a3d10bb74f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe7422e9d9b860f66dc112a3d10bb74f">&#9670;&nbsp;</a></span>read_discrete_input_registers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> tuple[bool, ...] cheap_modbus_rtu.modbus_rtu_master.ModbusRtuMaster.read_discrete_input_registers </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>slave_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &#160;</td>
+          <td class="paramname"><em>start_register_no</em> = <code>10001</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &#160;</td>
+          <td class="paramname"><em>n_registers</em> = <code>8</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read one or more discrete (on/off) input registers ("coils") </p>
+<pre class="fragment">   @param slave_id Modbus Slave ID
+   @param start_register_no First register number to read
+   @param n_registers Number of registers to read
+
+   @return Tuple of register values interpreted as 16-bit integers
+           if dtype == "ints" (default)
+   @return Tuple of register values each in a 16-bit bytes object
+           if dtype == "words"
+   @return bytes of register values if dtype == "raw"
+</pre> 
+</div>
+</div>
+<a id="a00c5181a0a4597b8d98940128c197c98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00c5181a0a4597b8d98940128c197c98">&#9670;&nbsp;</a></span>read_holding_registers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> tuple[int, ...] | tuple[bytes, ...] | bytes cheap_modbus_rtu.modbus_rtu_master.ModbusRtuMaster.read_holding_registers </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>slave_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &#160;</td>
+          <td class="paramname"><em>start_register_no</em> = <code>40001</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &#160;</td>
+          <td class="paramname"><em>n_registers</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str &#160;</td>
+          <td class="paramname"><em>dtype</em> = <code>&quot;ints&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read one or more value holding registers. </p>
+<pre class="fragment">   @param slave_id Modbus Slave ID
+   @param start_register_no First register number to read
+   @param n_registers Number of registers to read
+
+   @return Tuple of register values interpreted as 16-bit integers
+           if dtype == "ints" (default)
+   @return Tuple of register values each in a 16-bit bytes object
+           if dtype == "words"
+   @return bytes of register values if dtype == "raw"
+</pre> 
+</div>
+</div>
+<a id="abde84b6004021fe849e485d193921bbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abde84b6004021fe849e485d193921bbe">&#9670;&nbsp;</a></span>read_input_registers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> tuple[int, ...] | tuple[bytes, ...] | bytes cheap_modbus_rtu.modbus_rtu_master.ModbusRtuMaster.read_input_registers </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>slave_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &#160;</td>
+          <td class="paramname"><em>start_register_no</em> = <code>30001</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &#160;</td>
+          <td class="paramname"><em>n_registers</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str &#160;</td>
+          <td class="paramname"><em>dtype</em> = <code>&quot;ints&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read one or more input read-out registers. </p>
+<pre class="fragment">   @param slave_id Modbus Slave ID
+   @param start_register_no First register number to read
+   @param n_registers Number of registers to read
+
+   @return Tuple of register values interpreted as 16-bit integers
+           if dtype == "ints" (default)
+   @return Tuple of register values each in a 16-bit bytes object
+           if dtype == "words"
+   @return bytes of register values if dtype == "raw"
+</pre> 
+</div>
+</div>
+<a id="a1622b25bdb5d2c5bc0b1a1d755af8761"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1622b25bdb5d2c5bc0b1a1d755af8761">&#9670;&nbsp;</a></span>set_discrete_output_register()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def cheap_modbus_rtu.modbus_rtu_master.ModbusRtuMaster.set_discrete_output_register </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>slave_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>register_no</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool
+                                     &#160;</td>
+          <td class="paramname"><em>active</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set one discrete (on/off) output register ("coil") </p>
+<pre class="fragment">   @param slave_id Modbus Slave ID
+   @param register_no Register number to set
+   @param active Set output enabled if active == True, otherwise disable output
+</pre> 
+</div>
+</div>
+<a id="ace306b5fa580315fed1a4acb97b2077a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace306b5fa580315fed1a4acb97b2077a">&#9670;&nbsp;</a></span>set_holding_register()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def cheap_modbus_rtu.modbus_rtu_master.ModbusRtuMaster.set_holding_register </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>slave_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &#160;</td>
+          <td class="paramname"><em>register_no</em> = <code>40001</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &#160;</td>
+          <td class="paramname"><em>value</em> = <code>0x0000</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set one (analog or general-purpose) 16-bit value holding register. </p>
+<pre class="fragment">   @param slave_id Modbus Slave ID
+   @param register_no Register number to set
+   @param value Integer value to be written into 16-bit big-endian register
+</pre> 
+</div>
+</div>
+<a id="a16cbf5758238522b23b803a93cd43f42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16cbf5758238522b23b803a93cd43f42">&#9670;&nbsp;</a></span>set_holding_registers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def cheap_modbus_rtu.modbus_rtu_master.ModbusRtuMaster.set_holding_registers </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>slave_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>start_register_no</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">tuple[int, ...]&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &#160;</td>
+          <td class="paramname"><em>expect_echo_response</em> = <code>False</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set one or more (analog or general-purpose) 16-bit value holding registers. </p>
+<pre class="fragment">   @param slave_id Modbus Slave ID
+   @param start_register_no First register number to read
+   @param values Tuple of integer values to write into registers
+   @param expect_echo_response If set to True, expect a device response which
+       is a copy of the original query, which is not standard Modbus behaviour.
+</pre> 
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/cheap_modbus_rtu/modbus_rtu_master.py</li>
 </ul>
 </div><!-- contents -->

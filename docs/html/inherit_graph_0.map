@@ -1,7 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_cheap_modbus_relay_i_o_module.html" title="Control via RS&#45;485 Modbus RTU for the affordable Modbus relay PCBs." alt="" coords="5,104,300,145"/>
-<area shape="rect" id="node2" href="$classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay1_ch.html" title="Control via RS&#45;485 Modbus RTU for:" alt="" coords="348,5,536,47"/>
-<area shape="rect" id="node3" href="$classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay2_ch.html" title="Control via RS&#45;485 Modbus RTU for:" alt="" coords="348,71,536,112"/>
-<area shape="rect" id="node4" href="$classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay4_ch.html" title="Control via RS&#45;485 Modbus RTU for:" alt="" coords="348,136,536,177"/>
-<area shape="rect" id="node5" href="$classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay8_ch.html" title="Control via RS&#45;485 Modbus RTU for:" alt="" coords="348,201,536,243"/>
+<area shape="rect" id="node1" href="$classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_cheap_modbus_relay_i_o_module.html" title="Control affordable Modbus relay PCBs via RS&#45;485 Modbus RTU." alt="" coords="5,104,300,145"/>
+<area shape="rect" id="node2" href="$classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay1_ch.html" title="Control via RS&#45;485 Modbus RTU:" alt="" coords="348,5,536,47"/>
+<area shape="rect" id="node3" href="$classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay2_ch.html" title="Control via RS&#45;485 Modbus RTU:" alt="" coords="348,71,536,112"/>
+<area shape="rect" id="node4" href="$classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay4_ch.html" title="Control via RS&#45;485 Modbus RTU:" alt="" coords="348,136,536,177"/>
+<area shape="rect" id="node5" href="$classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay8_ch.html" title="Control via RS&#45;485 Modbus RTU:" alt="" coords="348,201,536,243"/>
 </map>

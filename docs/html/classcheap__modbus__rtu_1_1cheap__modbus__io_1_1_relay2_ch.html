@@ -53,7 +53,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Control via RS-485 Modbus RTU for:  
+<p>Control via RS-485 Modbus RTU:  
  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay2_ch.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -61,24 +61,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a87c4a9e383b724614760f4713bbc43ff"><td class="memItemLeft" align="right" valign="top"><a id="a87c4a9e383b724614760f4713bbc43ff"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self, *args, **kwargs)</td></tr>
 <tr class="separator:a87c4a9e383b724614760f4713bbc43ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af27455bd851ac1f11731253c5e0febef"><td class="memItemLeft" align="right" valign="top"><a id="af27455bd851ac1f11731253c5e0febef"></a>
-tuple[bool, bool]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay2_ch.html#af27455bd851ac1f11731253c5e0febef">get_inputs</a> (self)</td></tr>
-<tr class="memdesc:af27455bd851ac1f11731253c5e0febef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state of the digital inputs as a tuple of booleans. <br /></td></tr>
+<tr class="memitem:af27455bd851ac1f11731253c5e0febef"><td class="memItemLeft" align="right" valign="top">tuple[bool, bool]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay2_ch.html#af27455bd851ac1f11731253c5e0febef">get_inputs</a> (self)</td></tr>
+<tr class="memdesc:af27455bd851ac1f11731253c5e0febef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state of the 2 digital inputs.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay2_ch.html#af27455bd851ac1f11731253c5e0febef">More...</a><br /></td></tr>
 <tr class="separator:af27455bd851ac1f11731253c5e0febef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2c2e5c9b2bdbb8a06ac7d8d960fcf4a"><td class="memItemLeft" align="right" valign="top"><a id="ab2c2e5c9b2bdbb8a06ac7d8d960fcf4a"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_cheap_modbus_relay_i_o_module.html#ab2c2e5c9b2bdbb8a06ac7d8d960fcf4a">set_output</a> (self, int output_no, bool active=True)</td></tr>
-<tr class="memdesc:ab2c2e5c9b2bdbb8a06ac7d8d960fcf4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output number is 1 or 2 for the two-channel variant. <br /></td></tr>
+<tr class="memitem:ab2c2e5c9b2bdbb8a06ac7d8d960fcf4a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_cheap_modbus_relay_i_o_module.html#ab2c2e5c9b2bdbb8a06ac7d8d960fcf4a">set_output</a> (self, int output_no, bool active=True)</td></tr>
+<tr class="memdesc:ab2c2e5c9b2bdbb8a06ac7d8d960fcf4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set specified output.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_cheap_modbus_relay_i_o_module.html#ab2c2e5c9b2bdbb8a06ac7d8d960fcf4a">More...</a><br /></td></tr>
 <tr class="separator:ab2c2e5c9b2bdbb8a06ac7d8d960fcf4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88d8d2fcfeeade35fefd9d1e0861b57c"><td class="memItemLeft" align="right" valign="top"><a id="a88d8d2fcfeeade35fefd9d1e0861b57c"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_cheap_modbus_relay_i_o_module.html#a88d8d2fcfeeade35fefd9d1e0861b57c">clear_output</a> (self, int output_no)</td></tr>
-<tr class="memdesc:a88d8d2fcfeeade35fefd9d1e0861b57c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output number is 1 or 2 for the two-channel variant. <br /></td></tr>
+<tr class="memitem:a88d8d2fcfeeade35fefd9d1e0861b57c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_cheap_modbus_relay_i_o_module.html#a88d8d2fcfeeade35fefd9d1e0861b57c">clear_output</a> (self, int output_no)</td></tr>
+<tr class="memdesc:a88d8d2fcfeeade35fefd9d1e0861b57c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable specified output.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_cheap_modbus_relay_i_o_module.html#a88d8d2fcfeeade35fefd9d1e0861b57c">More...</a><br /></td></tr>
 <tr class="separator:a88d8d2fcfeeade35fefd9d1e0861b57c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb7c5cc72d2074761da1caf38483d518"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_cheap_modbus_relay_i_o_module.html#aeb7c5cc72d2074761da1caf38483d518">get_input</a> (self, int input_no)</td></tr>
 <tr class="memdesc:aeb7c5cc72d2074761da1caf38483d518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the state of the specified digital input.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_cheap_modbus_relay_i_o_module.html#aeb7c5cc72d2074761da1caf38483d518">More...</a><br /></td></tr>
 <tr class="separator:aeb7c5cc72d2074761da1caf38483d518"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac12d929ec3018f61ade23c22f86b26d1"><td class="memItemLeft" align="right" valign="top"><a id="ac12d929ec3018f61ade23c22f86b26d1"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_cheap_modbus_relay_i_o_module.html#ac12d929ec3018f61ade23c22f86b26d1">set_slave_id</a> (self, int slave_id_new)</td></tr>
-<tr class="memdesc:ac12d929ec3018f61ade23c22f86b26d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the slave ID. <br /></td></tr>
+<tr class="memitem:ac12d929ec3018f61ade23c22f86b26d1"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_cheap_modbus_relay_i_o_module.html#ac12d929ec3018f61ade23c22f86b26d1">set_slave_id</a> (self, int slave_id_new)</td></tr>
+<tr class="memdesc:ac12d929ec3018f61ade23c22f86b26d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the slave ID.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_cheap_modbus_relay_i_o_module.html#ac12d929ec3018f61ade23c22f86b26d1">More...</a><br /></td></tr>
 <tr class="separator:ac12d929ec3018f61ade23c22f86b26d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16a720c9b2d44b53f785cdd53de168a2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_cheap_modbus_relay_i_o_module.html#a16a720c9b2d44b53f785cdd53de168a2">get_broadcast_slave_id</a> (self)</td></tr>
 <tr class="memdesc:a16a720c9b2d44b53f785cdd53de168a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a broadcast query to all devices on the bus.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_cheap_modbus_relay_i_o_module.html#a16a720c9b2d44b53f785cdd53de168a2">More...</a><br /></td></tr>
@@ -103,7 +99,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 <tr class="separator:a3b8dbfc333292c03ce8a152c10806ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Control via RS-485 Modbus RTU for: </p>
+<div class="textblock"><p>Control via RS-485 Modbus RTU: </p>
 <p>1x Serial RS-485 Modbus RTU relay PCB</p>
 <p>==&gt; This is for the two-channel variant.</p>
 <p>This variant has:</p><ul>
@@ -111,6 +107,45 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 <li>two functionally isolated digital inputs </li>
 </ul>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a88d8d2fcfeeade35fefd9d1e0861b57c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88d8d2fcfeeade35fefd9d1e0861b57c">&#9670;&nbsp;</a></span>clear_output()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">def cheap_modbus_rtu.cheap_modbus_io.CheapModbusRelayIOModule.clear_output </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>output_no</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Disable specified output. </p>
+<pre class="fragment">   @param output_no Output number, starts counting at 1
+</pre> 
+</div>
+</div>
 <a id="a16a720c9b2d44b53f785cdd53de168a2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a16a720c9b2d44b53f785cdd53de168a2">&#9670;&nbsp;</a></span>get_broadcast_slave_id()</h2>
 
@@ -136,9 +171,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 </div><div class="memdoc">
 
 <p>Sends a broadcast query to all devices on the bus. </p>
-<pre class="fragment">   Returns the first found slave ID.
+<pre class="fragment">   This likely only works when only one device is attached to the bus
 
-   This likely only works when only one device is attached to the bus
+   @return The first found slave ID.
 </pre> 
 </div>
 </div>
@@ -177,7 +212,114 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 </div><div class="memdoc">
 
 <p>Return the state of the specified digital input. </p>
-<pre class="fragment">   Input number is 1 or 2 for the two-channel variant
+<pre class="fragment">   @param input_no Input number, starts counting at 1
+   @return True if input is enabled, False if disabled
+</pre> 
+</div>
+</div>
+<a id="af27455bd851ac1f11731253c5e0febef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af27455bd851ac1f11731253c5e0febef">&#9670;&nbsp;</a></span>get_inputs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> tuple[bool, bool] cheap_modbus_rtu.cheap_modbus_io.Relay2Ch.get_inputs </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the state of the 2 digital inputs. </p>
+<pre class="fragment">   @return Tuple of boolean flags, one for each input
+</pre> 
+</div>
+</div>
+<a id="ab2c2e5c9b2bdbb8a06ac7d8d960fcf4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2c2e5c9b2bdbb8a06ac7d8d960fcf4a">&#9670;&nbsp;</a></span>set_output()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">def cheap_modbus_rtu.cheap_modbus_io.CheapModbusRelayIOModule.set_output </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>output_no</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &#160;</td>
+          <td class="paramname"><em>active</em> = <code>True</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set specified output. </p>
+<pre class="fragment">   @param output_no Output number, starts counting at 1
+   @param active Enable output if active == True (default), otherwise disable output
+</pre> 
+</div>
+</div>
+<a id="ac12d929ec3018f61ade23c22f86b26d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac12d929ec3018f61ade23c22f86b26d1">&#9670;&nbsp;</a></span>set_slave_id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">def cheap_modbus_rtu.cheap_modbus_io.CheapModbusRelayIOModule.set_slave_id </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>slave_id_new</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the slave ID. </p>
+<pre class="fragment">   @param slave_id_new New Modbus slave ID
 </pre> 
 </div>
 </div>

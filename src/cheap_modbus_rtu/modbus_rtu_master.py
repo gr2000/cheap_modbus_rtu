@@ -33,6 +33,18 @@ class ModbusRtuMaster():
                                       start_register_no: int = 10001,
                                       n_registers: int = 8
                                       ) -> tuple[bool, ...]:
+        """Read one or more discrete (on/off) input registers ("coils")
+
+        @param slave_id Modbus Slave ID
+        @param start_register_no First register number to read
+        @param n_registers Number of registers to read
+
+        @return Tuple of register values interpreted as 16-bit integers
+                if dtype == "ints" (default)
+        @return Tuple of register values each in a 16-bit bytes object
+                if dtype == "words"
+        @return bytes of register values if dtype == "raw"
+        """
         # Frame starts with modbus address ("slave_id") and function code
         frame_out = bytes((slave_id, 0x02))
         # Discrete input register numbers have a register offset of 10001 which is subtracted.
@@ -54,14 +66,27 @@ class ModbusRtuMaster():
         return out_tuple
 
 
-    def read_analog_holding_registers(self,
-                                      slave_id: int,
-                                      start_register_no: int = 40001,
-                                      n_registers: int = 1
-                                      ) -> tuple[int, ...]:
+    def read_holding_registers(self,
+                               slave_id: int,
+                               start_register_no: int = 40001,
+                               n_registers: int = 1,
+                               dtype: str = "ints"
+                               ) -> tuple[int, ...] | tuple[bytes, ...] | bytes:
+        """Read one or more value holding registers
+
+        @param slave_id Modbus Slave ID
+        @param start_register_no First register number to read
+        @param n_registers Number of registers to read
+
+        @return Tuple of register values interpreted as 16-bit integers
+                if dtype == "ints" (default)
+        @return Tuple of register values each in a 16-bit bytes object
+                if dtype == "words"
+        @return bytes of register values if dtype == "raw"
+        """
         # Frame starts with modbus address ("slave_id") and function code
         frame_out = bytes((slave_id, 0x03))
-        # Discrete input register numbers have a register offset of 10001 which is subtracted.
+        # Holding register numbers have a register offset of 40001 which is subtracted.
         frame_out += int.to_bytes(start_register_no-40001, 2, "big")
         # Followed by the number of registers to read
         frame_out += int.to_bytes(n_registers, 2, "big")
@@ -69,15 +94,63 @@ class ModbusRtuMaster():
         n_payload_bytes = n_registers * 2
         # We expect five bytes plus number of payload bytes
         frame_in = self._add_crc_transmit(frame_out, 5 + n_payload_bytes)
-        payload_words = (frame_in[i:i+2] for i in range(3, 3+n_payload_bytes, 2))
-        return tuple(int.from_bytes(word, "big") for word in payload_words)
-    
-    
+        if dtype == "raw":
+            return frame_in[3:3+n_payload_bytes]
+        elif dtype == "ints":
+            payload_words = (frame_in[i:i+2] for i in range(3, 3+n_payload_bytes, 2))
+            return tuple(int.from_bytes(word, "big") for word in payload_words)
+        elif dtype == "words":
+            return tuple(frame_in[i:i+2] for i in range(3, 3+n_payload_bytes, 2))
+
+
+    def read_input_registers(self,
+                             slave_id: int,
+                             start_register_no: int = 30001,
+                             n_registers: int = 1,
+                             dtype: str = "ints"
+                             ) -> tuple[int, ...] | tuple[bytes, ...] | bytes:
+        """Read one or more input read-out registers
+
+        @param slave_id Modbus Slave ID
+        @param start_register_no First register number to read
+        @param n_registers Number of registers to read
+
+        @return Tuple of register values interpreted as 16-bit integers
+                if dtype == "ints" (default)
+        @return Tuple of register values each in a 16-bit bytes object
+                if dtype == "words"
+        @return bytes of register values if dtype == "raw"
+        """
+        # Frame starts with modbus address ("slave_id") and function code
+        frame_out = bytes((slave_id, 0x04))
+        # Input register numbers have a register offset of 30001 which is subtracted.
+        frame_out += int.to_bytes(start_register_no-30001, 2, "big")
+        # Followed by the number of registers to read
+        frame_out += int.to_bytes(n_registers, 2, "big")
+        # Payload is grouped into bytes
+        n_payload_bytes = n_registers * 2
+        # We expect five bytes plus number of payload bytes
+        frame_in = self._add_crc_transmit(frame_out, 5 + n_payload_bytes)
+        if dtype == "raw":
+            return frame_in[3:3+n_payload_bytes]
+        elif dtype == "ints":
+            payload_words = (frame_in[i:i+2] for i in range(3, 3+n_payload_bytes, 2))
+            return tuple(int.from_bytes(word, "big") for word in payload_words)
+        elif dtype == "words":
+            return tuple(frame_in[i:i+2] for i in range(3, 3+n_payload_bytes, 2))
+
+
     def set_discrete_output_register(self,
                                      slave_id: int,
                                      register_no: int,
                                      active: bool
                                      ):
+        """Set one discrete (on/off) output register ("coil")
+
+        @param slave_id Modbus Slave ID
+        @param register_no Register number to set
+        @param active Set output enabled if active == True, otherwise disable output
+        """
         # Frame starts with modbus address ("slave_id") and function code
         frame_out = bytes((slave_id, 0x05))
         # Discrete output register numbers have a register offset of 1 which is subtracted.
@@ -87,29 +160,43 @@ class ModbusRtuMaster():
         self._add_crc_transmit(frame_out, 8)
 
 
-    def set_analog_holding_register(self,
-                                    slave_id: int,
-                                    register_no: int = 40001,
-                                    value: int = 0x0000
-                                    ):
+    def set_holding_register(self,
+                             slave_id: int,
+                             register_no: int = 40001,
+                             value: int = 0x0000
+                             ):
+        """Set one (analog or general-purpose) 16-bit value holding register
+
+        @param slave_id Modbus Slave ID
+        @param register_no Register number to set
+        @param value Integer value to be written into 16-bit big-endian register
+        """
         # Frame starts with modbus address ("slave_id") and function code
         frame_out = bytes((slave_id, 0x06))
-        # Analog holding register numbers have a register offset of 40001 which is subtracted.
+        # Holding register numbers have a register offset of 40001 which is subtracted.
         frame_out += int.to_bytes(register_no-40001, 2, "big")
         # Append data
         frame_out += int.to_bytes(value, 2, "big")
         self._add_crc_transmit(frame_out, 8)
 
 
-    def set_analog_holding_registers(self,
-                                     slave_id: int,
-                                     start_register_no: int,
-                                     values: tuple[int, ...],
-                                     expect_echo_response: bool = False
-                                     ):
+    def set_holding_registers(self,
+                              slave_id: int,
+                              start_register_no: int,
+                              values: tuple[int, ...],
+                              expect_echo_response: bool = False
+                              ):
+        """Set one or more (analog or general-purpose) 16-bit value holding registers
+
+        @param slave_id Modbus Slave ID
+        @param start_register_no First register number to read
+        @param values Tuple of integer values to write into registers
+        @param expect_echo_response If set to True, expect a device response which
+            is a copy of the original query, which is not standard Modbus behaviour.
+        """
         # Frame starts with modbus address ("slave_id") and function code
         frame_out = bytes((slave_id, 0x10))
-        # Analog holding register numbers have a register offset of 40001 which is subtracted.
+        # Holding register numbers have a register offset of 40001 which is subtracted.
         frame_out += int.to_bytes(start_register_no-40001, 2, "big")
         # Followed by the number of registers to write
         n_registers = len(values)
