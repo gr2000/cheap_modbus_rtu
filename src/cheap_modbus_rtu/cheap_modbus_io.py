@@ -4,7 +4,78 @@ Lightweight control of cheap Modbus RTU components using Python
 import time
 from .modbus_rtu_master import ModbusRtuMaster
 
-class CheapModbusRelayIOModule():
+
+class ModbusModuleABC():
+    """Base class for cheap Modbus IO modules.
+    
+    Configuration constants like register values are
+    device-specific and implemented in the derived classes.
+    """
+    def __init__(self,
+                 slave_id: int,
+                 serial_device_name: str,
+                 baudrate: int,
+                 **kwargs
+                 ):
+        self.master = ModbusRtuMaster(serial_device_name, baudrate, **kwargs)
+        self.slave_id = slave_id
+    
+    def get_broadcast_slave_id(self) -> int:
+        """Sends a broadcast query to all devices on the bus
+        
+        This likely only works when only one device is attached to the bus
+
+        Returns:
+            The first found slave ID.
+        """
+        slave_id, = self.master.read_holding_registers(
+            self.BROADCAST_SLAVE_ID,
+            self.SLAVE_ID_REGISTER
+        )
+        self.slave_id = slave_id
+        return slave_id
+
+    def set_slave_id(self, slave_id_new: int):
+        """Set the slave ID
+
+        Warning:
+            While usually undocumented, it is possible that the device writes
+            directly to FLASH, thus frequent writes could damage the chip!
+
+        Args:
+            slave_id_new:   New Modbus slave ID
+        """
+        self.master.set_holding_registers(
+            self.slave_id,
+            self.SLAVE_ID_REGISTER,
+            (slave_id_new,),
+            expect_echo_response=True
+        )
+        self.slave_id = slave_id_new
+
+    def set_baudrate(self, baudrate: int = 9600):
+        """Set RS485 serial baud rate
+
+        Warning:
+            While usually undocumented, it is possible that the device writes
+            directly to FLASH, thus frequent writes could damage the chip!
+        
+        Args:
+            baudrate:  Can be 1200, 2400, 4800, 9600 (default) or 19200
+        """
+        try:
+            reg_val = self.BAUDRATE_KEYS[baudrate]
+        except KeyError:
+            baudrates_str = ", ".join((str(i) for i in self.BAUDRATE_KEYS.keys()))
+            raise ValueError(f"Invalid baud rate. Valid rates: {baudrates_str}")
+        self.master.set_holding_register(
+            self.slave_id,
+            self.BAUDRATE_REGISTER,
+            reg_val
+        )
+
+
+class RelayModule(ModbusModuleABC):
     """Control affordable Modbus relay PCBs via RS-485 Modbus RTU
 
     These come in one, two, four, eight or more channel variants and feature
@@ -30,10 +101,17 @@ class CheapModbusRelayIOModule():
     """
     DI_REGISTER = 10001
     SLAVE_ID_REGISTER = 40001
+    BAUDRATE_REGISTER = 41002 #Index 0x03E9
+    BROADCAST_SLAVE_ID = 0
+    BAUDRATE_KEYS = {1200: 0, 2400: 1, 4800: 2, 9600: 3, 19200: 4}
 
-    def __init__(self, serial_device_name: str = None, slave_id: int = 255, **kwargs):
-        self.master = ModbusRtuMaster(serial_device_name, **kwargs)
-        self.slave_id = slave_id
+    def __init__(self,
+                 slave_id: int = 255,
+                 serial_device_name: str = None,
+                 baudrate: int = 9600,
+                 **kwargs
+                 ):
+        super().__init__(slave_id, serial_device_name, baudrate, **kwargs)
     
     def set_output(self, output_no: int, active: bool = True):
         """Set specified output
@@ -66,41 +144,32 @@ class CheapModbusRelayIOModule():
             self.slave_id, self.DI_REGISTER, 8
         )
         return flags_8_ch[input_no-1]
-    
-    def set_slave_id(self, slave_id_new: int):
-        """Set the slave ID
+
+    def set_baudrate(self, baudrate: int = 9600):
+        """Set RS485 serial baud rate
 
         Warning:
-            This sets a configuration value, possibly writing directly to FLASH.
-            So this should not be called repeatedly!
-
+            While undocumented, it is possible that the device writes directly
+            to FLASH, thus frequent writes could damage the chip!
+        
         Args:
-            slave_id_new:   New Modbus slave ID
+            FIXME: 1200 and 2400 are undocumented. Really possible?
+            baudrate:  Can be 1200, 2400, 4800, 9600 (default) or 19200
         """
+        try:
+            reg_val = {1200: 0, 2400: 1, 4800: 2, 9600: 3, 19200: 4}[baudrate]
+        except KeyError:
+            raise ValueError("Baud rate must be 1200, 2400, 4800, 9600 or 19200")
+        # These relay modules seem to only support function code 0x10 for setting
+        # multiple holding registers and not fc 0x06 for setting one register only
         self.master.set_holding_registers(
             self.slave_id,
-            self.SLAVE_ID_REGISTER,
-            (slave_id_new,),
-            expect_echo_response=True
+            self.BAUDRATE_REGISTER,
+            (reg_val,)
         )
-        self.slave_id = slave_id_new
-    
-    def get_broadcast_slave_id(self) -> int:
-        """Sends a broadcast query to all devices on the bus
-        
-        This likely only works when only one device is attached to the bus
-
-        Returns:
-            The first found slave ID.
-        """
-        slave_id, = self.master.read_holding_registers(
-            0, self.SLAVE_ID_REGISTER, 1
-        )
-        self.slave_id = slave_id
-        return slave_id
 
 
-class Relay1Ch(CheapModbusRelayIOModule):
+class Relay1Ch(RelayModule):
     """Control via RS-485 Modbus RTU:
     
     1x Serial RS-485 Modbus RTU relay PCB
@@ -111,8 +180,13 @@ class Relay1Ch(CheapModbusRelayIOModule):
         - one relay output and
         - one NON-ISOLATED(!) digital input
     """
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self,
+                 slave_id: int = 255,
+                 serial_device_name: str = None,
+                 baudrate: int = 9600,
+                 **kwargs
+                 ):
+        super().__init__(slave_id, serial_device_name, baudrate, **kwargs)
 
     def get_input(self) -> bool:
         """Returns the state of the digital input
@@ -126,7 +200,7 @@ class Relay1Ch(CheapModbusRelayIOModule):
         return enabled
 
 
-class Relay2Ch(CheapModbusRelayIOModule):
+class Relay2Ch(RelayModule):
     """Control via RS-485 Modbus RTU:
     
     1x Serial RS-485 Modbus RTU relay PCB
@@ -137,8 +211,13 @@ class Relay2Ch(CheapModbusRelayIOModule):
         - two relay outputs and
         - two functionally isolated digital inputs
     """
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self,
+                 slave_id: int = 255,
+                 serial_device_name: str = None,
+                 baudrate: int = 9600,
+                 **kwargs
+                 ):
+        super().__init__(slave_id, serial_device_name, baudrate, **kwargs)
 
     def get_inputs(self) -> tuple[bool, bool]:
         """Returns the state of the 2 digital inputs
@@ -152,7 +231,7 @@ class Relay2Ch(CheapModbusRelayIOModule):
         return flags_8_ch[0:2]
 
 
-class Relay4Ch(CheapModbusRelayIOModule):
+class Relay4Ch(RelayModule):
     """Control via RS-485 Modbus RTU:
     
     1x Serial RS-485 Modbus RTU relay PCB
@@ -163,8 +242,13 @@ class Relay4Ch(CheapModbusRelayIOModule):
         - four relay outputs and
         - four functionally isolated digital inputs
     """
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self,
+                 slave_id: int = 255,
+                 serial_device_name: str = None,
+                 baudrate: int = 9600,
+                 **kwargs
+                 ):
+        super().__init__(slave_id, serial_device_name, baudrate, **kwargs)
 
     def get_inputs(self) -> tuple[bool, bool]:
         """Returns the state of the 4 digital inputs
@@ -178,7 +262,7 @@ class Relay4Ch(CheapModbusRelayIOModule):
         return flags_8_ch[0:4]
 
 
-class Relay8Ch(CheapModbusRelayIOModule):
+class Relay8Ch(RelayModule):
     """Control via RS-485 Modbus RTU:
     
     1x Serial RS-485 Modbus RTU relay PCB
@@ -189,8 +273,13 @@ class Relay8Ch(CheapModbusRelayIOModule):
         - eight relay outputs and
         - eight functionally isolated digital inputs
     """
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self,
+                 slave_id: int = 255,
+                 serial_device_name: str = None,
+                 baudrate: int = 9600,
+                 **kwargs
+                 ):
+        super().__init__(slave_id, serial_device_name, baudrate, **kwargs)
 
     def get_inputs(self) -> tuple[bool, ...]:
         """Returns the state of the 8 digital inputs
@@ -204,10 +293,10 @@ class Relay8Ch(CheapModbusRelayIOModule):
         return flags_8_ch
 
 
-class PWM8A04():
+class PWM8A04(ModbusModuleABC):
     """Control PWM8A04 3-channel PWM output modules via RS-485 Modbus RTU
 
-    The PWM8A04 seems to come with a pre-set slave ID of 1.
+    The PWM8A04 seem to come with a pre-set slave ID of 1.
 
     Brand name is "eletechsup", available at https://www.eletechsup.com
 
@@ -215,12 +304,20 @@ class PWM8A04():
     """
     FREQ_REG_OFFSET = 40000
     DUTY_REG_OFFSET = 40112
-    BROADCAST_SLAVE_ID = 0xFF # This is non-standard
     SLAVE_ID_REGISTER = 40254
+    BAUDRATE_REGISTER = 40255
+    BROADCAST_SLAVE_ID = 0xFF # This is non-standard
+    BAUDRATE_KEYS = {
+        1200: 0, 2400: 1, 4800: 2, 9600: 3, 19200: 4, 38400: 5, 57600: 6, 115200: 7
+    }
 
-    def __init__(self, serial_device_name: str = None, slave_id: int = 1, **kwargs):
-        self.master = ModbusRtuMaster(serial_device_name, **kwargs)
-        self.slave_id = slave_id
+    def __init__(self,
+                 slave_id: int = 1,
+                 serial_device_name: str = None,
+                 baudrate: int = 9600,
+                 **kwargs
+                 ):
+        super().__init__(slave_id, serial_device_name, baudrate, **kwargs)
 
     def get_output_frequency(self, output_no: int) -> int:
         """Return the current frequency setpoint for output
@@ -277,45 +374,12 @@ class PWM8A04():
             output_no + self.DUTY_REG_OFFSET,
             duty
         )
-    
-    def set_slave_id(self, slave_id_new: int):
-        """Set the slave ID
-
-        Warning:
-            This sets a configuration value, possibly writing directly to FLASH.
-            So this should not be called repeatedly!
-
-        Args:
-            slave_id_new:   New Modbus slave ID
-        """
-        self.master.set_holding_register(
-            self.slave_id,
-            self.SLAVE_ID_REGISTER,
-            slave_id_new
-        )
-        self.slave_id = slave_id_new
-    
-    def get_broadcast_slave_id(self) -> int:
-        """Sends a (nonstandard) broadcast query to all devices on the bus.
-    
-        These PWM modules seem to use 255 as a non-standard broadcast address..
-        This likely only works when only one device is attached to the bus.
-
-        Returns:
-            The first found slave ID.
-        """
-        slave_id, = self.master.read_holding_registers(
-            self.BROADCAST_SLAVE_ID,
-            self.SLAVE_ID_REGISTER
-        )
-        self.slave_id = slave_id
-        return slave_id
 
 
-class R4DIF08():
+class R4DIF08(ModbusModuleABC):
     """Control R4DIF08 8-channel digital input modules via RS-485 Modbus RTU
 
-    The R4DIF08 seems to come with a pre-set slave ID of 1.
+    The R4DIF08 seem to come with a pre-set slave ID of 1.
 
     Brand name is "eletechsup", available at https://www.eletechsup.com
 
@@ -323,12 +387,18 @@ class R4DIF08():
     """
     INPUT_REG_OFFSET = 40129
     INPUT_CONF_REGISTER = 40253
-    BROADCAST_SLAVE_ID = 0xFF # This is non-standard
     SLAVE_ID_REGISTER = 40255
+    BAUDRATE_REGISTER = 40256
+    BROADCAST_SLAVE_ID = 0xFF # This is non-standard
+    BAUDRATE_KEYS = {1200: 0, 2400: 1, 4800: 2, 9600: 3, 19200: 4}
 
-    def __init__(self, serial_device_name: str = None, slave_id: int = 1, **kwargs):
-        self.master = ModbusRtuMaster(serial_device_name, **kwargs)
-        self.slave_id = slave_id
+    def __init__(self,
+                 slave_id: int = 1,
+                 serial_device_name: str = None,
+                 baudrate: int = 9600,
+                 **kwargs
+                 ):
+        super().__init__(slave_id, serial_device_name, baudrate, **kwargs)
 
     def get_input(self, input_no: int) -> bool:
         """Return the state of the specified digital input
@@ -367,8 +437,8 @@ class R4DIF08():
         This is why a 0.2 second blocking delay is activated by default.
 
         Warning:
-            This sets a configuration value, possibly writing directly to FLASH.
-            So this should not be called repeatedly!
+            While undocumented, it is possible that the device writes directly
+            to FLASH, thus frequent writes could damage the chip!
 
         
         Args:
@@ -381,36 +451,104 @@ class R4DIF08():
         )
         if delay_enabled:
             time.sleep(0.2)
-    
-    def set_slave_id(self, slave_id_new: int):
-        """Set the slave ID
 
-        Warning:
-            This sets a configuration value, possibly writing directly to FLASH.
-            So this should not be called repeatedly!
+
+class N4AIA04(ModbusModuleABC):
+    """Control N4AIA04 4-channel 0..5V / 0..10V / 0..20mA analog input modules
+    (ADC) via RS-485 Modbus RTU
+
+    The N4AIA04 seem to come with a pre-set slave ID of 1.
+
+    Brand name is "eletechsup", available at https://www.eletechsup.com
+    """
+    INPUT_REG_OFFSET = 40000
+    INPUT_CAL_REG_OFFSET = 40007
+    SLAVE_ID_REGISTER = 40015
+    BAUDRATE_REGISTER = 40016
+    BROADCAST_SLAVE_ID = 0xFF # This is non-standard
+    BAUDRATE_KEYS = {1200: 0, 2400: 1, 4800: 2, 9600: 3, 19200: 4}
+
+    def __init__(self,
+                 slave_id: int = 1,
+                 serial_device_name: str = None,
+                 baudrate: int = 9600,
+                 **kwargs
+                 ):
+        super().__init__(slave_id, serial_device_name, baudrate, **kwargs)
+
+    def get_voltage(self, input_no: int) -> float:
+        """Read and return the value of the specified analog input voltage
+
+        Input no. 1 is 0..5 V,
+        Input no. 2 is 0..10 V
 
         Args:
-            slave_id_new:   New Modbus slave ID
-        """
-        self.master.set_holding_register(
-            self.slave_id,
-            self.SLAVE_ID_REGISTER,
-            slave_id_new
-        )
-        self.slave_id = slave_id_new
-    
-    def get_broadcast_slave_id(self) -> int:
-        """Sends a (nonstandard) broadcast query to all devices on the bus.
-    
-        These PWM modules seem to use 255 as a non-standard broadcast address..
-        This likely only works when only one device is attached to the bus.
+            input_no:   Input number, can be 1 or 2.
 
         Returns:
-            The first found slave ID.
+            Analog input voltage read-out value in volts
         """
-        slave_id, = self.master.read_holding_registers(
-            self.BROADCAST_SLAVE_ID,
-            self.SLAVE_ID_REGISTER
+        reg_val = self.master.read_holding_registers(
+            self.slave_id,
+            input_no + self.INPUT_REG_OFFSET
         )
-        self.slave_id = slave_id
-        return slave_id
+        return reg_val * 0.01
+
+    def get_current(self, input_no: int) -> float:
+        """Read and return the value of the specified analog input current
+
+        Input numbers are 3 and 4 and these are both 0..20 mA inputs.
+
+        Args:
+            input_no:   Input number, can be 3 or 4.
+
+        Returns:
+            Analog input current read-out value in mA
+        """
+        reg_val = self.master.read_holding_registers(
+            self.slave_id,
+            input_no + self.INPUT_REG_OFFSET
+        )
+        return reg_val * 0.1
+
+    def get_cal_factor(self, input_no: int) -> float:
+        """Get currently set hardware calibration / correction factor for input
+
+        A factor of 1.000 means no correction.
+        
+        Args:
+            input_no:   Input number, valid range is 1...4
+
+        Returns:
+            Hardware calibration factor for input
+        """
+        reg_val, = self.master.read_holding_registers(
+            self.BROADCAST_SLAVE_ID,
+            input_no + self.INPUT_CAL_REG_OFFSET
+        )
+        return reg_val * 0.001
+
+    def set_cal_factor(self, input_no: int, cal_factor: float = 1.000):
+        """Set analog calibration / correction factor for specified input
+
+        A factor of 1.000 means no correction.
+    
+        This does not factor in any previously set value.
+        The currently set value can be queried using get_cal_factor().
+
+        Warning:
+            While undocumented, it is possible that the device writes directly
+            to FLASH, thus frequent writes could damage the chip!
+        
+        Args:
+            input_no:   Input number, valid range is 1...4
+            cal_factor: Calibration value. Valid range is 0.0 ... 65.535
+        """
+        reg_val = round(cal_factor * 1000)
+        if 0 > reg_val or reg_val > 65535:
+            raise ValueError("Valid range for cal_factor is 0.0 ... 65.535")
+        self.master.set_holding_register(
+            self.slave_id,
+            input_no + self.INPUT_CAL_REG_OFFSET,
+            reg_val
+        )

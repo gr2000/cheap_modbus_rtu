@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cheap_modbus_rtu: cheap_modbus_rtu.cheap_modbus_io.R4DIF08 Class Reference</title>
+<title>cheap_modbus_rtu: cheap_modbus_rtu.cheap_modbus_io.N4AIA04 Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -39,7 +39,7 @@ $(function() {
 <div id="main-nav"></div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacecheap__modbus__rtu.html">cheap_modbus_rtu</a></li><li class="navelem"><b>cheap_modbus_io</b></li><li class="navelem"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08.html">R4DIF08</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacecheap__modbus__rtu.html">cheap_modbus_rtu</a></li><li class="navelem"><b>cheap_modbus_io</b></li><li class="navelem"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html">N4AIA04</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -47,29 +47,32 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08-members.html">List of all members</a>  </div>
+<a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">cheap_modbus_rtu.cheap_modbus_io.R4DIF08 Class Reference</div>  </div>
+<div class="title">cheap_modbus_rtu.cheap_modbus_io.N4AIA04 Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Control <a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08.html" title="Control R4DIF08 8-channel digital input modules via RS-485 Modbus RTU.">R4DIF08</a> 8-channel digital input modules via RS-485 Modbus RTU.  
- <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08.html#details">More...</a></p>
+<p>Control <a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html" title="Control N4AIA04 4-channel 0..5V / 0..10V / 0..20mA analog input modules (ADC) via RS-485 Modbus RTU.">N4AIA04</a> 4-channel 0..5V / 0..10V / 0..20mA analog input modules (ADC) via RS-485 Modbus RTU.  
+ <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8145bc1d39d7d6a8fa719a572ad649fd"><td class="memItemLeft" align="right" valign="top"><a id="a8145bc1d39d7d6a8fa719a572ad649fd"></a>
+<tr class="memitem:a854febef20718693a45e56acd73ca3e9"><td class="memItemLeft" align="right" valign="top"><a id="a854febef20718693a45e56acd73ca3e9"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self, int slave_id=1, str serial_device_name=None, int baudrate=9600, **kwargs)</td></tr>
-<tr class="separator:a8145bc1d39d7d6a8fa719a572ad649fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c6bf5c8d4de6888c33ed36ea7fc76be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08.html#a3c6bf5c8d4de6888c33ed36ea7fc76be">get_input</a> (self, int input_no)</td></tr>
-<tr class="memdesc:a3c6bf5c8d4de6888c33ed36ea7fc76be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the state of the specified digital input.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08.html#a3c6bf5c8d4de6888c33ed36ea7fc76be">More...</a><br /></td></tr>
-<tr class="separator:a3c6bf5c8d4de6888c33ed36ea7fc76be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16063a6b27ce7832b3e3109c6f2dc83d"><td class="memItemLeft" align="right" valign="top">tuple[bool,...]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08.html#a16063a6b27ce7832b3e3109c6f2dc83d">get_inputs</a> (self)</td></tr>
-<tr class="memdesc:a16063a6b27ce7832b3e3109c6f2dc83d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state of the 8 digital inputs.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08.html#a16063a6b27ce7832b3e3109c6f2dc83d">More...</a><br /></td></tr>
-<tr class="separator:a16063a6b27ce7832b3e3109c6f2dc83d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49db31757f447df9b0b9d968e938d970"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08.html#a49db31757f447df9b0b9d968e938d970">set_input_level</a> (self, active_high=False, delay_enabled=True)</td></tr>
-<tr class="memdesc:a49db31757f447df9b0b9d968e938d970"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set input inverters, or voltage level for boolean True output.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08.html#a49db31757f447df9b0b9d968e938d970">More...</a><br /></td></tr>
-<tr class="separator:a49db31757f447df9b0b9d968e938d970"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a854febef20718693a45e56acd73ca3e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fa730e7229d385a8444741749419340"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html#a8fa730e7229d385a8444741749419340">get_voltage</a> (self, int input_no)</td></tr>
+<tr class="memdesc:a8fa730e7229d385a8444741749419340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read and return the value of the specified analog input voltage.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html#a8fa730e7229d385a8444741749419340">More...</a><br /></td></tr>
+<tr class="separator:a8fa730e7229d385a8444741749419340"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff9c3c5f0980286e9f0146c85c70eed6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html#aff9c3c5f0980286e9f0146c85c70eed6">get_current</a> (self, int input_no)</td></tr>
+<tr class="memdesc:aff9c3c5f0980286e9f0146c85c70eed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read and return the value of the specified analog input current.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html#aff9c3c5f0980286e9f0146c85c70eed6">More...</a><br /></td></tr>
+<tr class="separator:aff9c3c5f0980286e9f0146c85c70eed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bb6622049e3cedc94171ed4c43b3af7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html#a3bb6622049e3cedc94171ed4c43b3af7">get_cal_factor</a> (self, int input_no)</td></tr>
+<tr class="memdesc:a3bb6622049e3cedc94171ed4c43b3af7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get currently set hardware calibration / correction factor for input.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html#a3bb6622049e3cedc94171ed4c43b3af7">More...</a><br /></td></tr>
+<tr class="separator:a3bb6622049e3cedc94171ed4c43b3af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ca7b69c89fe5151e231bc6258f9e68"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html#af2ca7b69c89fe5151e231bc6258f9e68">set_cal_factor</a> (self, int input_no, float cal_factor=1.000)</td></tr>
+<tr class="memdesc:af2ca7b69c89fe5151e231bc6258f9e68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set analog calibration / correction factor for specified input.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html#af2ca7b69c89fe5151e231bc6258f9e68">More...</a><br /></td></tr>
+<tr class="separator:af2ca7b69c89fe5151e231bc6258f9e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81504f287ebee2401ef641dbc8a44faf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_modbus_module_a_b_c.html#a81504f287ebee2401ef641dbc8a44faf">get_broadcast_slave_id</a> (self)</td></tr>
 <tr class="memdesc:a81504f287ebee2401ef641dbc8a44faf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a broadcast query to all devices on the bus.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_modbus_module_a_b_c.html#a81504f287ebee2401ef641dbc8a44faf">More...</a><br /></td></tr>
 <tr class="separator:a81504f287ebee2401ef641dbc8a44faf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -91,30 +94,29 @@ Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:ac382ee96a900698b0338074373afbe43"><td class="memItemLeft" align="right" valign="top"><a id="ac382ee96a900698b0338074373afbe43"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>INPUT_REG_OFFSET</b> = 40129</td></tr>
-<tr class="separator:ac382ee96a900698b0338074373afbe43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add92c48528bbb92012e07b8ffec00f48"><td class="memItemLeft" align="right" valign="top"><a id="add92c48528bbb92012e07b8ffec00f48"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>INPUT_CONF_REGISTER</b> = 40253</td></tr>
-<tr class="separator:add92c48528bbb92012e07b8ffec00f48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfc47f8ead814fe57c47323e165b9ace"><td class="memItemLeft" align="right" valign="top"><a id="acfc47f8ead814fe57c47323e165b9ace"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> = 40255</td></tr>
-<tr class="separator:acfc47f8ead814fe57c47323e165b9ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88f885f95eddbdb38898965f511a90b2"><td class="memItemLeft" align="right" valign="top"><a id="a88f885f95eddbdb38898965f511a90b2"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_REGISTER</b> = 40256</td></tr>
-<tr class="separator:a88f885f95eddbdb38898965f511a90b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9ccfbe7a29e248c9b4b7934ec3fa52f"><td class="memItemLeft" align="right" valign="top"><a id="aa9ccfbe7a29e248c9b4b7934ec3fa52f"></a>
+<tr class="memitem:a8dd8237bcfba5029c7aa5ac4354680c2"><td class="memItemLeft" align="right" valign="top"><a id="a8dd8237bcfba5029c7aa5ac4354680c2"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>INPUT_REG_OFFSET</b> = 40000</td></tr>
+<tr class="separator:a8dd8237bcfba5029c7aa5ac4354680c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a369ee01f1a85db550205f9c40ce1fe17"><td class="memItemLeft" align="right" valign="top"><a id="a369ee01f1a85db550205f9c40ce1fe17"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>INPUT_CAL_REG_OFFSET</b> = 40007</td></tr>
+<tr class="separator:a369ee01f1a85db550205f9c40ce1fe17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93148f18cd66e41514896ea0841358b4"><td class="memItemLeft" align="right" valign="top"><a id="a93148f18cd66e41514896ea0841358b4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> = 40015</td></tr>
+<tr class="separator:a93148f18cd66e41514896ea0841358b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96726d4b0743ed91c7454dd7d66b7e64"><td class="memItemLeft" align="right" valign="top"><a id="a96726d4b0743ed91c7454dd7d66b7e64"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_REGISTER</b> = 40016</td></tr>
+<tr class="separator:a96726d4b0743ed91c7454dd7d66b7e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae41dbd81772e7dc42b47c221556357df"><td class="memItemLeft" align="right" valign="top"><a id="ae41dbd81772e7dc42b47c221556357df"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>BROADCAST_SLAVE_ID</b> = 0xFF</td></tr>
-<tr class="separator:aa9ccfbe7a29e248c9b4b7934ec3fa52f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e19359ffadaafce66ee7a13a329e874"><td class="memItemLeft" align="right" valign="top"><a id="a0e19359ffadaafce66ee7a13a329e874"></a>
+<tr class="separator:ae41dbd81772e7dc42b47c221556357df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9ccb279d88a059dcdce9c82fd3b97b8"><td class="memItemLeft" align="right" valign="top"><a id="ac9ccb279d88a059dcdce9c82fd3b97b8"></a>
 dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</b> = {1200: 0, 2400: 1, 4800: 2, 9600: 3, 19200: 4}</td></tr>
-<tr class="separator:a0e19359ffadaafce66ee7a13a329e874"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ac9ccb279d88a059dcdce9c82fd3b97b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Control <a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08.html" title="Control R4DIF08 8-channel digital input modules via RS-485 Modbus RTU.">R4DIF08</a> 8-channel digital input modules via RS-485 Modbus RTU. </p>
-<p>The <a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08.html" title="Control R4DIF08 8-channel digital input modules via RS-485 Modbus RTU.">R4DIF08</a> seem to come with a pre-set slave ID of 1.</p>
-<p>Brand name is "eletechsup", available at <a href="https://www.eletechsup.com">https://www.eletechsup.com</a></p>
-<p>This is for the three-channel variant. </p>
+<div class="textblock"><p>Control <a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html" title="Control N4AIA04 4-channel 0..5V / 0..10V / 0..20mA analog input modules (ADC) via RS-485 Modbus RTU.">N4AIA04</a> 4-channel 0..5V / 0..10V / 0..20mA analog input modules (ADC) via RS-485 Modbus RTU. </p>
+<p>The <a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html" title="Control N4AIA04 4-channel 0..5V / 0..10V / 0..20mA analog input modules (ADC) via RS-485 Modbus RTU.">N4AIA04</a> seem to come with a pre-set slave ID of 1.</p>
+<p>Brand name is "eletechsup", available at <a href="https://www.eletechsup.com">https://www.eletechsup.com</a> </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a81504f287ebee2401ef641dbc8a44faf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a81504f287ebee2401ef641dbc8a44faf">&#9670;&nbsp;</a></span>get_broadcast_slave_id()</h2>
@@ -146,14 +148,14 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
 
 </div>
 </div>
-<a id="a3c6bf5c8d4de6888c33ed36ea7fc76be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c6bf5c8d4de6888c33ed36ea7fc76be">&#9670;&nbsp;</a></span>get_input()</h2>
+<a id="a3bb6622049e3cedc94171ed4c43b3af7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bb6622049e3cedc94171ed4c43b3af7">&#9670;&nbsp;</a></span>get_cal_factor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"> bool cheap_modbus_rtu.cheap_modbus_io.R4DIF08.get_input </td>
+          <td class="memname"> float cheap_modbus_rtu.cheap_modbus_io.N4AIA04.get_cal_factor </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>self</em>, </td>
@@ -172,35 +174,92 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
       </table>
 </div><div class="memdoc">
 
-<p>Return the state of the specified digital input. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Get currently set hardware calibration / correction factor for input. </p>
+<pre class="fragment">   A factor of 1.000 means no correction.
+</pre><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input_no</td><td>Input number, starts counting at 1</td></tr>
+    <tr><td class="paramname">input_no</td><td>Input number, valid range is 1...4</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if input is enabled, False if disabled </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Hardware calibration factor for input </dd></dl>
 
 </div>
 </div>
-<a id="a16063a6b27ce7832b3e3109c6f2dc83d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16063a6b27ce7832b3e3109c6f2dc83d">&#9670;&nbsp;</a></span>get_inputs()</h2>
+<a id="aff9c3c5f0980286e9f0146c85c70eed6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff9c3c5f0980286e9f0146c85c70eed6">&#9670;&nbsp;</a></span>get_current()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"> tuple[bool, ...] cheap_modbus_rtu.cheap_modbus_io.R4DIF08.get_inputs </td>
+          <td class="memname"> float cheap_modbus_rtu.cheap_modbus_io.N4AIA04.get_current </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em></td><td>)</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>input_no</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the state of the 8 digital inputs. </p>
-<dl class="section return"><dt>Returns</dt><dd>Tuple of 8 boolean flags, one for each input </dd></dl>
+<p>Read and return the value of the specified analog input current. </p>
+<pre class="fragment">   Input numbers are 3 and 4 and these are both 0..20 mA inputs.
+</pre><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input_no</td><td>Input number, can be 3 or 4.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Analog input current read-out value in mA </dd></dl>
+
+</div>
+</div>
+<a id="a8fa730e7229d385a8444741749419340"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fa730e7229d385a8444741749419340">&#9670;&nbsp;</a></span>get_voltage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float cheap_modbus_rtu.cheap_modbus_io.N4AIA04.get_voltage </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>input_no</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read and return the value of the specified analog input voltage. </p>
+<pre class="fragment">   Input no. 1 is 0..5 V,
+   Input no. 2 is 0..10 V
+</pre><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input_no</td><td>Input number, can be 1 or 2.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Analog input voltage read-out value in volts </dd></dl>
 
 </div>
 </div>
@@ -251,14 +310,14 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
 
 </div>
 </div>
-<a id="a49db31757f447df9b0b9d968e938d970"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49db31757f447df9b0b9d968e938d970">&#9670;&nbsp;</a></span>set_input_level()</h2>
+<a id="af2ca7b69c89fe5151e231bc6258f9e68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2ca7b69c89fe5151e231bc6258f9e68">&#9670;&nbsp;</a></span>set_cal_factor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def cheap_modbus_rtu.cheap_modbus_io.R4DIF08.set_input_level </td>
+          <td class="memname">def cheap_modbus_rtu.cheap_modbus_io.N4AIA04.set_cal_factor </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>self</em>, </td>
@@ -266,14 +325,14 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>active_high</em> = <code>False</code>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>input_no</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>delay_enabled</em> = <code>True</code>&#160;</td>
+          <td class="paramtype">float &#160;</td>
+          <td class="paramname"><em>cal_factor</em> = <code>1.000</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -283,19 +342,16 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
       </table>
 </div><div class="memdoc">
 
-<p>Set input inverters, or voltage level for boolean True output. </p>
-<pre class="fragment">   The module only supports setting all inputs at once, so this
-   applies to all eight inputs.
+<p>Set analog calibration / correction factor for specified input. </p>
+<pre class="fragment">   A factor of 1.000 means no correction.
 
-   There seems to be a delay necessary in order for the module to be
-   re-configured and ready to answer queries after setting this register.
-
-   This is why a 0.2 second blocking delay is activated by default.
+   This does not factor in any previously set value.
+   The currently set value can be queried using get_cal_factor().
 </pre> <dl class="section warning"><dt>Warning</dt><dd>While undocumented, it is possible that the device writes directly to FLASH, thus frequent writes could damage the chip!</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">active_high</td><td>If set to False (default), Report True for low-level input (0 V, GND). If set to True, Report True for high-level input (&gt; VCC/2). </td></tr>
-    <tr><td class="paramname">delay_enabled</td><td>Enable 0.2 second delay if set to True (default) </td></tr>
+    <tr><td class="paramname">input_no</td><td>Input number, valid range is 1...4 </td></tr>
+    <tr><td class="paramname">cal_factor</td><td>Calibration value. Valid range is 0.0 ... 65.535 </td></tr>
   </table>
   </dd>
 </dl>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cheap_modbus_rtu: cheap_modbus_rtu.cheap_modbus_io.Relay2Ch Class Reference</title>
+<title>cheap_modbus_rtu: cheap_modbus_rtu.cheap_modbus_io.RelayModule Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -39,7 +39,7 @@ $(function() {
 <div id="main-nav"></div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacecheap__modbus__rtu.html">cheap_modbus_rtu</a></li><li class="navelem"><b>cheap_modbus_io</b></li><li class="navelem"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay2_ch.html">Relay2Ch</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacecheap__modbus__rtu.html">cheap_modbus_rtu</a></li><li class="navelem"><b>cheap_modbus_io</b></li><li class="navelem"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay_module.html">RelayModule</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -47,23 +47,20 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay2_ch-members.html">List of all members</a>  </div>
+<a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay_module-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">cheap_modbus_rtu.cheap_modbus_io.Relay2Ch Class Reference</div>  </div>
+<div class="title">cheap_modbus_rtu.cheap_modbus_io.RelayModule Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Control via RS-485 Modbus RTU:  
- <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay2_ch.html#details">More...</a></p>
+<p>Control affordable Modbus relay PCBs via RS-485 Modbus RTU.  
+ <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay_module.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa7e7876b9a39b06e1051b56edc063d9a"><td class="memItemLeft" align="right" valign="top"><a id="aa7e7876b9a39b06e1051b56edc063d9a"></a>
+<tr class="memitem:a7e78bd5aa36b75f647b21745dd921a0a"><td class="memItemLeft" align="right" valign="top"><a id="a7e78bd5aa36b75f647b21745dd921a0a"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self, int slave_id=255, str serial_device_name=None, int baudrate=9600, **kwargs)</td></tr>
-<tr class="separator:aa7e7876b9a39b06e1051b56edc063d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af27455bd851ac1f11731253c5e0febef"><td class="memItemLeft" align="right" valign="top">tuple[bool, bool]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay2_ch.html#af27455bd851ac1f11731253c5e0febef">get_inputs</a> (self)</td></tr>
-<tr class="memdesc:af27455bd851ac1f11731253c5e0febef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state of the 2 digital inputs.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay2_ch.html#af27455bd851ac1f11731253c5e0febef">More...</a><br /></td></tr>
-<tr class="separator:af27455bd851ac1f11731253c5e0febef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a7e78bd5aa36b75f647b21745dd921a0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfeefbbf39938b24bc326bcfec20d8a6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay_module.html#acfeefbbf39938b24bc326bcfec20d8a6">set_output</a> (self, int output_no, bool active=True)</td></tr>
 <tr class="memdesc:acfeefbbf39938b24bc326bcfec20d8a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set specified output.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay_module.html#acfeefbbf39938b24bc326bcfec20d8a6">More...</a><br /></td></tr>
 <tr class="separator:acfeefbbf39938b24bc326bcfec20d8a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,22 +108,24 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
 <tr class="separator:a528cde23181644cf5aef4b95898c3ce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Control via RS-485 Modbus RTU: </p>
-<p>1x Serial RS-485 Modbus RTU relay PCB</p>
-<p>==&gt; This is for the two-channel variant.</p>
-<p>This variant has:</p><ul>
-<li>two relay outputs and</li>
-<li>two functionally isolated digital inputs </li>
+<div class="textblock"><p>Control affordable Modbus relay PCBs via RS-485 Modbus RTU. </p>
+<p>These come in one, two, four, eight or more channel variants and feature different numbers of additional digital IO pins.</p>
+<p>While the relay outputs are insulated for mains voltage application, the digital IO pins are only featuring functional or low-voltage isolation, some variants do not have isolated inputs at all.</p>
+<p>The detailed implementation varies slightly between variants, the difference (for the time being) is the number of input state values contained in the tuple returned from the "get_inputs()" method.</p>
+<p>All other methods are identical.</p>
+<p>==&gt; Please see documentation of the derived classes for details:</p><ul>
+<li><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay1_ch.html" title="Control via RS-485 Modbus RTU:">Relay1Ch</a></li>
+<li><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay2_ch.html" title="Control via RS-485 Modbus RTU:">Relay2Ch</a></li>
+<li><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay4_ch.html" title="Control via RS-485 Modbus RTU:">Relay4Ch</a></li>
+<li><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay8_ch.html" title="Control via RS-485 Modbus RTU:">Relay8Ch</a></li>
 </ul>
+<p>Brand name is "bestep" among others. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="adb1c5a2e593da6d0343e74d14a7a17a0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adb1c5a2e593da6d0343e74d14a7a17a0">&#9670;&nbsp;</a></span>clear_output()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">def cheap_modbus_rtu.cheap_modbus_io.RelayModule.clear_output </td>
@@ -146,11 +145,6 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Disable specified output. </p>
@@ -198,9 +192,6 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"> bool cheap_modbus_rtu.cheap_modbus_io.RelayModule.get_input </td>
@@ -220,11 +211,6 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Return the state of the specified digital input. </p>
@@ -238,35 +224,11 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
 
 </div>
 </div>
-<a id="af27455bd851ac1f11731253c5e0febef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af27455bd851ac1f11731253c5e0febef">&#9670;&nbsp;</a></span>get_inputs()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"> tuple[bool, bool] cheap_modbus_rtu.cheap_modbus_io.Relay2Ch.get_inputs </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the state of the 2 digital inputs. </p>
-<dl class="section return"><dt>Returns</dt><dd>Tuple of boolean flags, one for each input </dd></dl>
-
-</div>
-</div>
 <a id="a7d4bd808c0888ef07fe3c747ecbfafaa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7d4bd808c0888ef07fe3c747ecbfafaa">&#9670;&nbsp;</a></span>set_baudrate()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">def cheap_modbus_rtu.cheap_modbus_io.RelayModule.set_baudrate </td>
@@ -286,11 +248,6 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Set RS485 serial baud rate. </p>
@@ -312,9 +269,6 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">def cheap_modbus_rtu.cheap_modbus_io.RelayModule.set_output </td>
@@ -340,11 +294,6 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Set specified output. </p>

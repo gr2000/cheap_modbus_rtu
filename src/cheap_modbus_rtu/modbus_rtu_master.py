@@ -15,6 +15,7 @@ class ModbusRtuMaster():
     """
     def __init__(self,
                  device_name: str = None,
+                 baudrate: int = 9600,
                  timeout=1,
                  debug_active=False,
                  **kwargs
@@ -25,7 +26,7 @@ class ModbusRtuMaster():
                 device_name = "/dev/ttyUSB0"
             elif os.name == "nt":
                 device_name = "COM1"
-        self.serial_device = Serial(device_name, timeout=timeout, **kwargs)
+        self.serial_device = Serial(device_name, baudrate, timeout=timeout, **kwargs)
 
 
     def read_discrete_input_registers(self,
@@ -200,7 +201,7 @@ class ModbusRtuMaster():
         # Holding register numbers have a register offset of 40001 which is subtracted.
         frame_out += int.to_bytes(register_no-40001, 2, "big")
         # Append data
-        frame_out += int.to_bytes(value, 2, "big", value<0)
+        frame_out += int.to_bytes(value, 2, "big", signed=value<0)
         self._add_crc_transmit(frame_out, 8)
 
 
@@ -231,7 +232,7 @@ class ModbusRtuMaster():
         frame_out += int.to_bytes(n_registers*2, 1, "big")
         # Append data
         for value in values:
-            frame_out += int.to_bytes(value, 2, "big", value<0)
+            frame_out += int.to_bytes(value, 2, "big", signed=value<0)
         # According to the standard, funciton code 16 should return 8 bytes,
         # omitting the originally sent values and number of bytes.
         # Some hardware devices however return an echo response with as many
