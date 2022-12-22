@@ -21,7 +21,7 @@ user@linux:~/mysrc$ pip install .
 from cheap_modbus_rtu import R4DIF08
 
 # Slave ID for these modules is pre-set to 1
-input_module = R4DIF08("/dev/ttyUSB0", slave_id=1)
+input_module = R4DIF08(slave_id=1, serial_device_name="/dev/ttyUSB0")
 
 inputs = input_module.get_inputs()
 print(inputs)
@@ -35,7 +35,7 @@ import time
 from cheap_modbus_rtu import Relay2Ch
 
 # Slave ID for these modules is pre-set to 255
-modbus_relay = Relay2Ch("/dev/ttyUSB0", slave_id=255)
+modbus_relay = Relay2Ch(slave_id=255, serial_device_name="/dev/ttyUSB0")
 
 while True:
     modbus_relay.set_output(1, True)
@@ -50,7 +50,7 @@ while True:
 from cheap_modbus_rtu import PWM8A04
 
 # Slave ID for these PWM modules is pre-set to 1
-pwm = PWM8A04("/dev/ttyUSB0", slave_id=1)
+pwm = PWM8A04(slave_id=1, serial_device_name="/dev/ttyUSB0")
 
 pwm.set_output_frequency(1, 20000)
 pwm.set_output_duty(1, 33)
