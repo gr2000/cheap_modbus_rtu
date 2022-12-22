@@ -61,7 +61,7 @@ R4DIF08, 8-Channel digital input PCB: Read all eight inputs</h2>
 <div class="fragment"><div class="line">from cheap_modbus_rtu import R4DIF08</div>
 <div class="line"> </div>
 <div class="line"># Slave ID for these modules is pre-set to 1</div>
-<div class="line">input_module = R4DIF08(&quot;/dev/ttyUSB0&quot;, slave_id=1)</div>
+<div class="line">input_module = R4DIF08(slave_id=1, serial_device_name=&quot;/dev/ttyUSB0&quot;)</div>
 <div class="line"> </div>
 <div class="line">inputs = input_module.get_inputs()</div>
 <div class="line">print(inputs)</div>
@@ -72,7 +72,7 @@ Relay IO PCB: Toggle one relay on-off in a 1-second cycle</h2>
 <div class="line">from cheap_modbus_rtu import Relay2Ch</div>
 <div class="line"> </div>
 <div class="line"># Slave ID for these modules is pre-set to 255</div>
-<div class="line">modbus_relay = Relay2Ch(&quot;/dev/ttyUSB0&quot;, slave_id=255)</div>
+<div class="line">modbus_relay = Relay2Ch(slave_id=255, serial_device_name=&quot;/dev/ttyUSB0&quot;)</div>
 <div class="line"> </div>
 <div class="line">while True:</div>
 <div class="line">    modbus_relay.set_output(1, True)</div>
@@ -84,7 +84,7 @@ PWM8A04, 3-Channel PWM output PCB: Set output 1 to 20 kHz, 33 % duty cycle</h2>
 <div class="fragment"><div class="line">from cheap_modbus_rtu import PWM8A04</div>
 <div class="line"> </div>
 <div class="line"># Slave ID for these PWM modules is pre-set to 1</div>
-<div class="line">pwm = PWM8A04(&quot;/dev/ttyUSB0&quot;, slave_id=1)</div>
+<div class="line">pwm = PWM8A04(slave_id=1, serial_device_name=&quot;/dev/ttyUSB0&quot;)</div>
 <div class="line"> </div>
 <div class="line">pwm.set_output_frequency(1, 20000)</div>
 <div class="line">pwm.set_output_duty(1, 33)</div>
