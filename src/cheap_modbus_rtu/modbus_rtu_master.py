@@ -73,7 +73,7 @@ class ModbusRtuMaster():
                                dtype: str = "uint16"
 # Since Python 3.10 typing can be:
 #                               ) -> tuple[int, ...] | tuple[bytes, ...] | bytes:
-                               ) -> Union(tuple[int, ...], tuple[bytes, ...], bytes):
+                               ) -> Union[tuple[int, ...], tuple[bytes, ...], bytes]:
         """Read one or more value holding registers
 
         Args:
@@ -123,7 +123,7 @@ class ModbusRtuMaster():
                              dtype: str = "uint16"
 # Since Python 3.10 typing can be:
 #                             ) -> tuple[int, ...] | tuple[bytes, ...] | bytes:
-                             ) -> Union(tuple[int, ...], tuple[bytes, ...], bytes):
+                             ) -> Union[tuple[int, ...], tuple[bytes, ...], bytes]:
         """Read one or more input read-out registers
 
         Args:
