@@ -1,4 +1,5 @@
 import os
+from typing import Union
 from serial import Serial
 from .crc16_modbus import crc16_lut
 
@@ -70,7 +71,9 @@ class ModbusRtuMaster():
                                start_register_no: int = 40001,
                                n_registers: int = 1,
                                dtype: str = "uint16"
-                               ) -> tuple[int, ...] | tuple[bytes, ...] | bytes:
+# Since Python 3.10 typing can be:
+#                               ) -> tuple[int, ...] | tuple[bytes, ...] | bytes:
+                               ) -> Union(tuple[int, ...], tuple[bytes, ...], bytes):
         """Read one or more value holding registers
 
         Args:
@@ -118,7 +121,9 @@ class ModbusRtuMaster():
                              start_register_no: int = 30001,
                              n_registers: int = 1,
                              dtype: str = "uint16"
-                             ) -> tuple[int, ...] | tuple[bytes, ...] | bytes:
+# Since Python 3.10 typing can be:
+#                             ) -> tuple[int, ...] | tuple[bytes, ...] | bytes:
+                             ) -> Union(tuple[int, ...], tuple[bytes, ...], bytes):
         """Read one or more input read-out registers
 
         Args:
