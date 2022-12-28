@@ -221,6 +221,9 @@ class RelayModule(ModbusModuleABC):
             (reg_val,)
         )
 
+    def do_factory_reset(self):
+        raise NotImplementedError("Factory reset not implemented for the relay modules")
+
 
 class Relay1Ch(RelayModule):
     """Control via RS-485 Modbus RTU:
@@ -333,6 +336,8 @@ class PWM8A04(ModbusModuleABC):
     DUTY_REG_OFFSET = 40112
     SLAVE_ID_REGISTER = 40254
     BAUDRATE_REGISTER = 40255
+    FACTORY_RESET_REGISTER = 40252
+    FACTORY_RESET_VALUE = 0
     BROADCAST_SLAVE_ID = 0xFF # This is non-standard
     BAUDRATE_KEYS = {
         1200: 0, 2400: 1, 4800: 2, 9600: 3, 19200: 4, 38400: 5, 57600: 6, 115200: 7
@@ -424,6 +429,8 @@ class R4DIF08(ModbusModuleABC):
     INPUT_CONF_REGISTER = 40253
     SLAVE_ID_REGISTER = 40255
     BAUDRATE_REGISTER = 40256
+    FACTORY_RESET_REGISTER = 40016
+    FACTORY_RESET_VALUE = 5
     BROADCAST_SLAVE_ID = 0xFF # This is non-standard
     BAUDRATE_KEYS = {1200: 0, 2400: 1, 4800: 2, 9600: 3, 19200: 4}
 
