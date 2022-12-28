@@ -162,10 +162,13 @@ class RelayModule(ModbusModuleABC):
         """
         if 1 > input_no or input_no > self.NUM_IOS:
             raise ValueError(f"Input number must be between 1 and {self.NUM_IOS}")
-        flags_8_ch = self.master.read_discrete_input_registers(
-            self.slave_id, self.DI_REGISTER, 8
+        flags = self.master.read_discrete_input_registers(
+            self.slave_id,
+            self.DI_REGISTER,
+            # Only reading eight registers seems to be implemented..
+            8
         )
-        return flags_8_ch[input_no-1]
+        return flags[input_no-1]
 
     def get_inputs(self) -> tuple[bool, ...]:
         """Returns the state of the digital inputs
@@ -176,9 +179,10 @@ class RelayModule(ModbusModuleABC):
         flags = self.master.read_discrete_input_registers(
             self.slave_id,
             self.DI_REGISTER,
-            self.NUM_IOS
+            # Only reading eight registers seems to be implemented..
+            8
         )
-        return flags
+        return flags[0:self.NUM_IOS]
 
     def set_slave_id(self, slave_id_new: int):
         """Set the slave ID
@@ -248,18 +252,6 @@ class Relay1Ch(RelayModule):
                  ):
         super().__init__(slave_id, serial_device_name, baudrate, **kwargs)
 
-    def get_input(self) -> bool:
-        """Returns the state of the digital input
-
-        Returns:
-            True if input is enabled, False if disabled
-        """
-        enabled, = self.master.read_discrete_input_registers(
-            self.slave_id,
-            self.DI_REGISTER,
-            1
-        )
-        return enabled
 
 class Relay2Ch(RelayModule):
     """Control via RS-485 Modbus RTU:
@@ -431,7 +423,7 @@ class R4DIF08(ModbusModuleABC):
     INPUT_CONF_REGISTER = 40253
     SLAVE_ID_REGISTER = 40255
     BAUDRATE_REGISTER = 40256
-    FACTORY_RESET_REGISTER = 40016
+    FACTORY_RESET_REGISTER = 40256
     FACTORY_RESET_VALUE = 5
     BROADCAST_SLAVE_ID = 0xFF # This is non-standard
     BAUDRATE_KEYS = {1200: 0, 2400: 1, 4800: 2, 9600: 3, 19200: 4}
