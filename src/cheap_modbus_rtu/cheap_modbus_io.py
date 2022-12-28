@@ -608,7 +608,7 @@ class N4AIA04(ModbusModuleABC):
 
 
 class N4DAC02(ModbusModuleABC):
-    """Control N4DAC02 4-channel 0..5V / 0..10V / 0..20mA analog output modules
+    """Control N4DAC02 2-channel 0..5V / 0..10V analog output modules
     (DAC) via RS-485 Modbus RTU
 
     The N4DAC02 seem to come with a pre-set slave ID of 1.
