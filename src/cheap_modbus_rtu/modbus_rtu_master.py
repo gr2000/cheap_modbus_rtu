@@ -191,7 +191,8 @@ class ModbusRtuMaster():
     def set_holding_register(self,
                              slave_id: int,
                              register_no: int = 40001,
-                             value: int = 0x0000
+                             value: int = 0x0000,
+                             expect_echo_response: bool = False
                              ):
         """Set one (analog or general-purpose) 16-bit value holding register
 
@@ -207,7 +208,14 @@ class ModbusRtuMaster():
         frame_out += int.to_bytes(register_no-40001, 2, "big")
         # Append data
         frame_out += int.to_bytes(value, 2, "big", signed=value<0)
-        self._add_crc_transmit(frame_out, 8)
+        # According to the standard, funciton code 16 should return 8 bytes,
+        # omitting the originally sent values and number of bytes.
+        # Some hardware devices however return an echo response with as many
+        # bytes as were sent out originally.
+        if expect_echo_response:
+            self._add_crc_transmit(frame_out, 2+len(frame_out))
+        else:
+            self._add_crc_transmit(frame_out, 8)
 
 
     def set_holding_registers(self,

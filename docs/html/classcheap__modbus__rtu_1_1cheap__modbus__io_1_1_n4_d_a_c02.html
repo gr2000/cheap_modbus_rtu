@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cheap_modbus_rtu: cheap_modbus_rtu.cheap_modbus_io.N4AIA04 Class Reference</title>
+<title>cheap_modbus_rtu: cheap_modbus_rtu.cheap_modbus_io.N4DAC02 Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -39,7 +39,7 @@ $(function() {
 <div id="main-nav"></div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacecheap__modbus__rtu.html">cheap_modbus_rtu</a></li><li class="navelem"><b>cheap_modbus_io</b></li><li class="navelem"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html">N4AIA04</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacecheap__modbus__rtu.html">cheap_modbus_rtu</a></li><li class="navelem"><b>cheap_modbus_io</b></li><li class="navelem"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_d_a_c02.html">N4DAC02</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -47,32 +47,29 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04-members.html">List of all members</a>  </div>
+<a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_d_a_c02-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">cheap_modbus_rtu.cheap_modbus_io.N4AIA04 Class Reference</div>  </div>
+<div class="title">cheap_modbus_rtu.cheap_modbus_io.N4DAC02 Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Control <a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html" title="Control N4AIA04 4-channel 0..5V / 0..10V / 0..20mA analog input modules (ADC) via RS-485 Modbus RTU.">N4AIA04</a> 4-channel 0..5V / 0..10V / 0..20mA analog input modules (ADC) via RS-485 Modbus RTU.  
- <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html#details">More...</a></p>
+<p>Control <a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_d_a_c02.html" title="Control N4DAC02 4-channel 0..5V / 0..10V / 0..20mA analog output modules (DAC) via RS-485 Modbus RTU.">N4DAC02</a> 4-channel 0..5V / 0..10V / 0..20mA analog output modules (DAC) via RS-485 Modbus RTU.  
+ <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_d_a_c02.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a854febef20718693a45e56acd73ca3e9"><td class="memItemLeft" align="right" valign="top"><a id="a854febef20718693a45e56acd73ca3e9"></a>
+<tr class="memitem:ab57f407f5c7247776c3f7cad4ecfd41b"><td class="memItemLeft" align="right" valign="top"><a id="ab57f407f5c7247776c3f7cad4ecfd41b"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self, int slave_id=1, str serial_device_name=None, int baudrate=9600, **kwargs)</td></tr>
-<tr class="separator:a854febef20718693a45e56acd73ca3e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fa730e7229d385a8444741749419340"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html#a8fa730e7229d385a8444741749419340">get_voltage</a> (self, int input_no)</td></tr>
-<tr class="memdesc:a8fa730e7229d385a8444741749419340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read and return the value of the specified analog input voltage.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html#a8fa730e7229d385a8444741749419340">More...</a><br /></td></tr>
-<tr class="separator:a8fa730e7229d385a8444741749419340"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff9c3c5f0980286e9f0146c85c70eed6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html#aff9c3c5f0980286e9f0146c85c70eed6">get_current</a> (self, int input_no)</td></tr>
-<tr class="memdesc:aff9c3c5f0980286e9f0146c85c70eed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read and return the value of the specified analog input current.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html#aff9c3c5f0980286e9f0146c85c70eed6">More...</a><br /></td></tr>
-<tr class="separator:aff9c3c5f0980286e9f0146c85c70eed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bb6622049e3cedc94171ed4c43b3af7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html#a3bb6622049e3cedc94171ed4c43b3af7">get_cal_factor</a> (self, int input_no)</td></tr>
-<tr class="memdesc:a3bb6622049e3cedc94171ed4c43b3af7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get currently set hardware calibration / correction factor for input.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html#a3bb6622049e3cedc94171ed4c43b3af7">More...</a><br /></td></tr>
-<tr class="separator:a3bb6622049e3cedc94171ed4c43b3af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2ca7b69c89fe5151e231bc6258f9e68"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html#af2ca7b69c89fe5151e231bc6258f9e68">set_cal_factor</a> (self, int input_no, float cal_factor=1.000)</td></tr>
-<tr class="memdesc:af2ca7b69c89fe5151e231bc6258f9e68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set analog calibration / correction factor for specified input.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html#af2ca7b69c89fe5151e231bc6258f9e68">More...</a><br /></td></tr>
-<tr class="separator:af2ca7b69c89fe5151e231bc6258f9e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ab57f407f5c7247776c3f7cad4ecfd41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36c7a6eea27c67415b69f705c1ba412e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_d_a_c02.html#a36c7a6eea27c67415b69f705c1ba412e">set_voltage</a> (self, int output_no, float voltage)</td></tr>
+<tr class="memdesc:a36c7a6eea27c67415b69f705c1ba412e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set setpoint for the analog output voltage.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_d_a_c02.html#a36c7a6eea27c67415b69f705c1ba412e">More...</a><br /></td></tr>
+<tr class="separator:a36c7a6eea27c67415b69f705c1ba412e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba5f66b3de24681af38542ac8c378123"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_d_a_c02.html#aba5f66b3de24681af38542ac8c378123">get_cal_factor</a> (self, int output_no)</td></tr>
+<tr class="memdesc:aba5f66b3de24681af38542ac8c378123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get currently set hardware calibration / correction factor for output.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_d_a_c02.html#aba5f66b3de24681af38542ac8c378123">More...</a><br /></td></tr>
+<tr class="separator:aba5f66b3de24681af38542ac8c378123"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0491a57c450112ea2abaa0aeb0707ef1"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_d_a_c02.html#a0491a57c450112ea2abaa0aeb0707ef1">set_cal_factor</a> (self, int output_no, float cal_factor=1.000)</td></tr>
+<tr class="memdesc:a0491a57c450112ea2abaa0aeb0707ef1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set analog calibration / correction factor for specified output.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_d_a_c02.html#a0491a57c450112ea2abaa0aeb0707ef1">More...</a><br /></td></tr>
+<tr class="separator:a0491a57c450112ea2abaa0aeb0707ef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93681cc8c2599b1e32c0fb2690168d09"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_modbus_module_a_b_c.html#a93681cc8c2599b1e32c0fb2690168d09">get_slave_id</a> (self)</td></tr>
 <tr class="memdesc:a93681cc8c2599b1e32c0fb2690168d09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a broadcast query to all devices on the bus.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_modbus_module_a_b_c.html#a93681cc8c2599b1e32c0fb2690168d09">More...</a><br /></td></tr>
 <tr class="separator:a93681cc8c2599b1e32c0fb2690168d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -97,34 +94,34 @@ Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a8dd8237bcfba5029c7aa5ac4354680c2"><td class="memItemLeft" align="right" valign="top"><a id="a8dd8237bcfba5029c7aa5ac4354680c2"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>INPUT_REG_OFFSET</b> = 40000</td></tr>
-<tr class="separator:a8dd8237bcfba5029c7aa5ac4354680c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a369ee01f1a85db550205f9c40ce1fe17"><td class="memItemLeft" align="right" valign="top"><a id="a369ee01f1a85db550205f9c40ce1fe17"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>INPUT_CAL_REG_OFFSET</b> = 40007</td></tr>
-<tr class="separator:a369ee01f1a85db550205f9c40ce1fe17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93148f18cd66e41514896ea0841358b4"><td class="memItemLeft" align="right" valign="top"><a id="a93148f18cd66e41514896ea0841358b4"></a>
+<tr class="memitem:a3b61f8ddb0b1878889307b738ad7dde9"><td class="memItemLeft" align="right" valign="top"><a id="a3b61f8ddb0b1878889307b738ad7dde9"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>OUTPUT_REG_OFFSET</b> = 40000</td></tr>
+<tr class="separator:a3b61f8ddb0b1878889307b738ad7dde9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a488aeaed943f0de9d11c8be10495d9ac"><td class="memItemLeft" align="right" valign="top"><a id="a488aeaed943f0de9d11c8be10495d9ac"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>OUTPUT_CAL_REG_OFFSET</b> = 40007</td></tr>
+<tr class="separator:a488aeaed943f0de9d11c8be10495d9ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabea79f52a57a5321b70a210c9960d8c"><td class="memItemLeft" align="right" valign="top"><a id="aabea79f52a57a5321b70a210c9960d8c"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> = 40015</td></tr>
-<tr class="separator:a93148f18cd66e41514896ea0841358b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96726d4b0743ed91c7454dd7d66b7e64"><td class="memItemLeft" align="right" valign="top"><a id="a96726d4b0743ed91c7454dd7d66b7e64"></a>
+<tr class="separator:aabea79f52a57a5321b70a210c9960d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a599a3edde9af746099e8677b7f8f8602"><td class="memItemLeft" align="right" valign="top"><a id="a599a3edde9af746099e8677b7f8f8602"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_REGISTER</b> = 40016</td></tr>
-<tr class="separator:a96726d4b0743ed91c7454dd7d66b7e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ce12f5d94e5134ae28d270157eb1cce"><td class="memItemLeft" align="right" valign="top"><a id="a7ce12f5d94e5134ae28d270157eb1cce"></a>
+<tr class="separator:a599a3edde9af746099e8677b7f8f8602"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeaf149964185095115922cf1a3f2e7b"><td class="memItemLeft" align="right" valign="top"><a id="abeaf149964185095115922cf1a3f2e7b"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>FACTORY_RESET_REGISTER</b> = 40016</td></tr>
-<tr class="separator:a7ce12f5d94e5134ae28d270157eb1cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1adc9a8aebb722e04b0d1093df598954"><td class="memItemLeft" align="right" valign="top"><a id="a1adc9a8aebb722e04b0d1093df598954"></a>
+<tr class="separator:abeaf149964185095115922cf1a3f2e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54cbbc30838f120594db1594b9d3d4ab"><td class="memItemLeft" align="right" valign="top"><a id="a54cbbc30838f120594db1594b9d3d4ab"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>FACTORY_RESET_VALUE</b> = 5</td></tr>
-<tr class="separator:a1adc9a8aebb722e04b0d1093df598954"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae41dbd81772e7dc42b47c221556357df"><td class="memItemLeft" align="right" valign="top"><a id="ae41dbd81772e7dc42b47c221556357df"></a>
+<tr class="separator:a54cbbc30838f120594db1594b9d3d4ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4ca16178cd99127bf013953faea64c1"><td class="memItemLeft" align="right" valign="top"><a id="ac4ca16178cd99127bf013953faea64c1"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>BROADCAST_SLAVE_ID</b> = 0xFF</td></tr>
-<tr class="separator:ae41dbd81772e7dc42b47c221556357df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9ccb279d88a059dcdce9c82fd3b97b8"><td class="memItemLeft" align="right" valign="top"><a id="ac9ccb279d88a059dcdce9c82fd3b97b8"></a>
+<tr class="separator:ac4ca16178cd99127bf013953faea64c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae59bfa34119939334604ba0391633eed"><td class="memItemLeft" align="right" valign="top"><a id="ae59bfa34119939334604ba0391633eed"></a>
 dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</b> = {1200: 0, 2400: 1, 4800: 2, 9600: 3, 19200: 4}</td></tr>
-<tr class="separator:ac9ccb279d88a059dcdce9c82fd3b97b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ae59bfa34119939334604ba0391633eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Control <a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html" title="Control N4AIA04 4-channel 0..5V / 0..10V / 0..20mA analog input modules (ADC) via RS-485 Modbus RTU.">N4AIA04</a> 4-channel 0..5V / 0..10V / 0..20mA analog input modules (ADC) via RS-485 Modbus RTU. </p>
-<p>The <a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html" title="Control N4AIA04 4-channel 0..5V / 0..10V / 0..20mA analog input modules (ADC) via RS-485 Modbus RTU.">N4AIA04</a> seem to come with a pre-set slave ID of 1.</p>
+<div class="textblock"><p>Control <a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_d_a_c02.html" title="Control N4DAC02 4-channel 0..5V / 0..10V / 0..20mA analog output modules (DAC) via RS-485 Modbus RTU.">N4DAC02</a> 4-channel 0..5V / 0..10V / 0..20mA analog output modules (DAC) via RS-485 Modbus RTU. </p>
+<p>The <a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_d_a_c02.html" title="Control N4DAC02 4-channel 0..5V / 0..10V / 0..20mA analog output modules (DAC) via RS-485 Modbus RTU.">N4DAC02</a> seem to come with a pre-set slave ID of 1.</p>
 <p>Brand name is "eletechsup", available at <a href="https://www.eletechsup.com">https://www.eletechsup.com</a> </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="af99bd47c9367013b0452a9f82f6d690f"></a>
@@ -159,14 +156,14 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
 </pre> 
 </div>
 </div>
-<a id="a3bb6622049e3cedc94171ed4c43b3af7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bb6622049e3cedc94171ed4c43b3af7">&#9670;&nbsp;</a></span>get_cal_factor()</h2>
+<a id="aba5f66b3de24681af38542ac8c378123"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba5f66b3de24681af38542ac8c378123">&#9670;&nbsp;</a></span>get_cal_factor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"> float cheap_modbus_rtu.cheap_modbus_io.N4AIA04.get_cal_factor </td>
+          <td class="memname"> float cheap_modbus_rtu.cheap_modbus_io.N4DAC02.get_cal_factor </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>self</em>, </td>
@@ -175,7 +172,7 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>input_no</em>&#160;</td>
+          <td class="paramname"><em>output_no</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -185,53 +182,15 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
       </table>
 </div><div class="memdoc">
 
-<p>Get currently set hardware calibration / correction factor for input. </p>
+<p>Get currently set hardware calibration / correction factor for output. </p>
 <pre class="fragment">   A factor of 1.000 means no correction.
 </pre><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input_no</td><td>Input number, valid range is 1...4</td></tr>
+    <tr><td class="paramname">output_no</td><td>Output number, can be 1 or 2.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Hardware calibration factor for input </dd></dl>
-
-</div>
-</div>
-<a id="aff9c3c5f0980286e9f0146c85c70eed6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff9c3c5f0980286e9f0146c85c70eed6">&#9670;&nbsp;</a></span>get_current()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"> float cheap_modbus_rtu.cheap_modbus_io.N4AIA04.get_current </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>input_no</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Read and return the value of the specified analog input current. </p>
-<pre class="fragment">   Input numbers are 3 and 4 and these are both 0..20 mA inputs.
-</pre><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input_no</td><td>Input number, can be 3 or 4.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Analog input current read-out value in mA </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Hardware calibration factor for output </dd></dl>
 
 </div>
 </div>
@@ -262,45 +221,6 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
 <p>Sends a broadcast query to all devices on the bus. </p>
 <pre class="fragment">   This only works when only one device is attached to the bus
 </pre> <dl class="section return"><dt>Returns</dt><dd>The first found slave ID. </dd></dl>
-
-</div>
-</div>
-<a id="a8fa730e7229d385a8444741749419340"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8fa730e7229d385a8444741749419340">&#9670;&nbsp;</a></span>get_voltage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"> float cheap_modbus_rtu.cheap_modbus_io.N4AIA04.get_voltage </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>self</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>input_no</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Read and return the value of the specified analog input voltage. </p>
-<pre class="fragment">   Input no. 1 is 0..5 V,
-   Input no. 2 is 0..10 V
-</pre><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input_no</td><td>Input number, can be 1 or 2.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Analog input voltage read-out value in volts </dd></dl>
 
 </div>
 </div>
@@ -353,14 +273,14 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
 
 </div>
 </div>
-<a id="af2ca7b69c89fe5151e231bc6258f9e68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2ca7b69c89fe5151e231bc6258f9e68">&#9670;&nbsp;</a></span>set_cal_factor()</h2>
+<a id="a0491a57c450112ea2abaa0aeb0707ef1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0491a57c450112ea2abaa0aeb0707ef1">&#9670;&nbsp;</a></span>set_cal_factor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def cheap_modbus_rtu.cheap_modbus_io.N4AIA04.set_cal_factor </td>
+          <td class="memname">def cheap_modbus_rtu.cheap_modbus_io.N4DAC02.set_cal_factor </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>self</em>, </td>
@@ -369,7 +289,7 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>input_no</em>, </td>
+          <td class="paramname"><em>output_no</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -385,7 +305,7 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
       </table>
 </div><div class="memdoc">
 
-<p>Set analog calibration / correction factor for specified input. </p>
+<p>Set analog calibration / correction factor for specified output. </p>
 <pre class="fragment">   A factor of 1.000 means no correction.
 
    This does not factor in any previously set value.
@@ -393,8 +313,8 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
 </pre> <dl class="section warning"><dt>Warning</dt><dd>While undocumented, it is possible that the device writes directly to FLASH, thus frequent writes could damage the chip!</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input_no</td><td>Input number, valid range is 1...4 </td></tr>
-    <tr><td class="paramname">cal_factor</td><td>Calibration value. Valid range is 0.0 ... 65.535 </td></tr>
+    <tr><td class="paramname">output_no</td><td>Output number, can be 1 or 2. </td></tr>
+    <tr><td class="paramname">cal_factor</td><td>Calibration value. Valid range is 0.0 ... 32.767 </td></tr>
   </table>
   </dd>
 </dl>
@@ -445,6 +365,51 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
 </dl>
 
 <p>Reimplemented in <a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay_module.html#a61be74958138846f89a690d1c803df5d">cheap_modbus_rtu.cheap_modbus_io.RelayModule</a>.</p>
+
+</div>
+</div>
+<a id="a36c7a6eea27c67415b69f705c1ba412e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36c7a6eea27c67415b69f705c1ba412e">&#9670;&nbsp;</a></span>set_voltage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def cheap_modbus_rtu.cheap_modbus_io.N4DAC02.set_voltage </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>output_no</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>voltage</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set setpoint for the analog output voltage. </p>
+<pre class="fragment">   Output no. 1 is 0..5 V,
+   Output no. 2 is 0..10 V
+</pre><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output_no</td><td>Output number, can be 1 or 2. </td></tr>
+    <tr><td class="paramname">voltage</td><td>Setpoint for output voltage in volts. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

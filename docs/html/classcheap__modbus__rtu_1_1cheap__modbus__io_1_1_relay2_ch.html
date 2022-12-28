@@ -61,9 +61,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa7e7876b9a39b06e1051b56edc063d9a"><td class="memItemLeft" align="right" valign="top"><a id="aa7e7876b9a39b06e1051b56edc063d9a"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self, int slave_id=255, str serial_device_name=None, int baudrate=9600, **kwargs)</td></tr>
 <tr class="separator:aa7e7876b9a39b06e1051b56edc063d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af27455bd851ac1f11731253c5e0febef"><td class="memItemLeft" align="right" valign="top">tuple[bool, bool]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay2_ch.html#af27455bd851ac1f11731253c5e0febef">get_inputs</a> (self)</td></tr>
-<tr class="memdesc:af27455bd851ac1f11731253c5e0febef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state of the 2 digital inputs.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay2_ch.html#af27455bd851ac1f11731253c5e0febef">More...</a><br /></td></tr>
-<tr class="separator:af27455bd851ac1f11731253c5e0febef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfeefbbf39938b24bc326bcfec20d8a6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay_module.html#acfeefbbf39938b24bc326bcfec20d8a6">set_output</a> (self, int output_no, bool active=True)</td></tr>
 <tr class="memdesc:acfeefbbf39938b24bc326bcfec20d8a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set specified output.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay_module.html#acfeefbbf39938b24bc326bcfec20d8a6">More...</a><br /></td></tr>
 <tr class="separator:acfeefbbf39938b24bc326bcfec20d8a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -73,27 +70,36 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self, in
 <tr class="memitem:a8d60f02672cd0120a6a40fb3f2601602"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay_module.html#a8d60f02672cd0120a6a40fb3f2601602">get_input</a> (self, int input_no)</td></tr>
 <tr class="memdesc:a8d60f02672cd0120a6a40fb3f2601602"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the state of the specified digital input.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay_module.html#a8d60f02672cd0120a6a40fb3f2601602">More...</a><br /></td></tr>
 <tr class="separator:a8d60f02672cd0120a6a40fb3f2601602"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c37c20bf7d844e6749584d72700d91f"><td class="memItemLeft" align="right" valign="top">tuple[bool,...]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay_module.html#a1c37c20bf7d844e6749584d72700d91f">get_inputs</a> (self)</td></tr>
+<tr class="memdesc:a1c37c20bf7d844e6749584d72700d91f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state of the digital inputs.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay_module.html#a1c37c20bf7d844e6749584d72700d91f">More...</a><br /></td></tr>
+<tr class="separator:a1c37c20bf7d844e6749584d72700d91f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61be74958138846f89a690d1c803df5d"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay_module.html#a61be74958138846f89a690d1c803df5d">set_slave_id</a> (self, int slave_id_new)</td></tr>
+<tr class="memdesc:a61be74958138846f89a690d1c803df5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the slave ID.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay_module.html#a61be74958138846f89a690d1c803df5d">More...</a><br /></td></tr>
+<tr class="separator:a61be74958138846f89a690d1c803df5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d4bd808c0888ef07fe3c747ecbfafaa"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay_module.html#a7d4bd808c0888ef07fe3c747ecbfafaa">set_baudrate</a> (self, int baudrate=9600)</td></tr>
 <tr class="memdesc:a7d4bd808c0888ef07fe3c747ecbfafaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set RS485 serial baud rate.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay_module.html#a7d4bd808c0888ef07fe3c747ecbfafaa">More...</a><br /></td></tr>
 <tr class="separator:a7d4bd808c0888ef07fe3c747ecbfafaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81504f287ebee2401ef641dbc8a44faf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_modbus_module_a_b_c.html#a81504f287ebee2401ef641dbc8a44faf">get_broadcast_slave_id</a> (self)</td></tr>
-<tr class="memdesc:a81504f287ebee2401ef641dbc8a44faf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a broadcast query to all devices on the bus.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_modbus_module_a_b_c.html#a81504f287ebee2401ef641dbc8a44faf">More...</a><br /></td></tr>
-<tr class="separator:a81504f287ebee2401ef641dbc8a44faf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a610c17c6902a7834969c1a7c09e9272b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_modbus_module_a_b_c.html#a610c17c6902a7834969c1a7c09e9272b">set_slave_id</a> (self, int slave_id_new)</td></tr>
-<tr class="memdesc:a610c17c6902a7834969c1a7c09e9272b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the slave ID.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_modbus_module_a_b_c.html#a610c17c6902a7834969c1a7c09e9272b">More...</a><br /></td></tr>
-<tr class="separator:a610c17c6902a7834969c1a7c09e9272b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93681cc8c2599b1e32c0fb2690168d09"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_modbus_module_a_b_c.html#a93681cc8c2599b1e32c0fb2690168d09">get_slave_id</a> (self)</td></tr>
+<tr class="memdesc:a93681cc8c2599b1e32c0fb2690168d09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a broadcast query to all devices on the bus.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_modbus_module_a_b_c.html#a93681cc8c2599b1e32c0fb2690168d09">More...</a><br /></td></tr>
+<tr class="separator:a93681cc8c2599b1e32c0fb2690168d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af99bd47c9367013b0452a9f82f6d690f"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_modbus_module_a_b_c.html#af99bd47c9367013b0452a9f82f6d690f">do_factory_reset</a> (self)</td></tr>
+<tr class="memdesc:af99bd47c9367013b0452a9f82f6d690f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restore factory default settings.  <a href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_modbus_module_a_b_c.html#af99bd47c9367013b0452a9f82f6d690f">More...</a><br /></td></tr>
+<tr class="separator:af99bd47c9367013b0452a9f82f6d690f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:ad57801a92b8bfb6bb7d88bd014c9131f"><td class="memItemLeft" align="right" valign="top"><a id="ad57801a92b8bfb6bb7d88bd014c9131f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>slave_id</b></td></tr>
+<tr class="separator:ad57801a92b8bfb6bb7d88bd014c9131f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01a875d6ab4a5bad58e5ca16c1603e87"><td class="memItemLeft" align="right" valign="top"><a id="a01a875d6ab4a5bad58e5ca16c1603e87"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>master</b></td></tr>
 <tr class="separator:a01a875d6ab4a5bad58e5ca16c1603e87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab63f4d67808781f87fca052d57664c20"><td class="memItemLeft" align="right" valign="top"><a id="ab63f4d67808781f87fca052d57664c20"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>slave_id</b></td></tr>
-<tr class="separator:ab63f4d67808781f87fca052d57664c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
+<tr class="memitem:ac591d83c7d13f9b42a52cb538d83746f"><td class="memItemLeft" align="right" valign="top"><a id="ac591d83c7d13f9b42a52cb538d83746f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>NUM_IOS</b> = 2</td></tr>
+<tr class="separator:ac591d83c7d13f9b42a52cb538d83746f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5a4917b98c3e18ce614baa00f59a80b"><td class="memItemLeft" align="right" valign="top"><a id="aa5a4917b98c3e18ce614baa00f59a80b"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>DI_REGISTER</b> = 10001</td></tr>
 <tr class="separator:aa5a4917b98c3e18ce614baa00f59a80b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,8 +169,8 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
 
 </div>
 </div>
-<a id="a81504f287ebee2401ef641dbc8a44faf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81504f287ebee2401ef641dbc8a44faf">&#9670;&nbsp;</a></span>get_broadcast_slave_id()</h2>
+<a id="af99bd47c9367013b0452a9f82f6d690f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af99bd47c9367013b0452a9f82f6d690f">&#9670;&nbsp;</a></span>do_factory_reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -173,7 +179,7 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"> int cheap_modbus_rtu.cheap_modbus_io.ModbusModuleABC.get_broadcast_slave_id </td>
+          <td class="memname">def cheap_modbus_rtu.cheap_modbus_io.ModbusModuleABC.do_factory_reset </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>self</em></td><td>)</td>
@@ -187,10 +193,12 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
 </table>
 </div><div class="memdoc">
 
-<p>Sends a broadcast query to all devices on the bus. </p>
-<pre class="fragment">   This likely only works when only one device is attached to the bus
-</pre> <dl class="section return"><dt>Returns</dt><dd>The first found slave ID. </dd></dl>
+<p>Restore factory default settings. </p>
+<pre class="fragment">   You must cycle the power supply after this command.
 
+   Expect a CRC mismatch error when invoking this function,
+   I don't know if this is always the case.
+</pre> 
 </div>
 </div>
 <a id="a8d60f02672cd0120a6a40fb3f2601602"></a>
@@ -238,24 +246,62 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
 
 </div>
 </div>
-<a id="af27455bd851ac1f11731253c5e0febef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af27455bd851ac1f11731253c5e0febef">&#9670;&nbsp;</a></span>get_inputs()</h2>
+<a id="a1c37c20bf7d844e6749584d72700d91f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c37c20bf7d844e6749584d72700d91f">&#9670;&nbsp;</a></span>get_inputs()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"> tuple[bool, bool] cheap_modbus_rtu.cheap_modbus_io.Relay2Ch.get_inputs </td>
+          <td class="memname"> tuple[bool, ...] cheap_modbus_rtu.cheap_modbus_io.RelayModule.get_inputs </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>self</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Returns the state of the 2 digital inputs. </p>
+<p>Returns the state of the digital inputs. </p>
 <dl class="section return"><dt>Returns</dt><dd>Tuple of boolean flags, one for each input </dd></dl>
+
+</div>
+</div>
+<a id="a93681cc8c2599b1e32c0fb2690168d09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93681cc8c2599b1e32c0fb2690168d09">&#9670;&nbsp;</a></span>get_slave_id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> int cheap_modbus_rtu.cheap_modbus_io.ModbusModuleABC.get_slave_id </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a broadcast query to all devices on the bus. </p>
+<pre class="fragment">   This only works when only one device is attached to the bus
+</pre> <dl class="section return"><dt>Returns</dt><dd>The first found slave ID. </dd></dl>
 
 </div>
 </div>
@@ -358,8 +404,8 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
 
 </div>
 </div>
-<a id="a610c17c6902a7834969c1a7c09e9272b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a610c17c6902a7834969c1a7c09e9272b">&#9670;&nbsp;</a></span>set_slave_id()</h2>
+<a id="a61be74958138846f89a690d1c803df5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61be74958138846f89a690d1c803df5d">&#9670;&nbsp;</a></span>set_slave_id()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -368,7 +414,7 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">def cheap_modbus_rtu.cheap_modbus_io.ModbusModuleABC.set_slave_id </td>
+          <td class="memname">def cheap_modbus_rtu.cheap_modbus_io.RelayModule.set_slave_id </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>self</em>, </td>
@@ -400,6 +446,8 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
   </table>
   </dd>
 </dl>
+
+<p>Reimplemented from <a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_modbus_module_a_b_c.html#a610c17c6902a7834969c1a7c09e9272b">cheap_modbus_rtu.cheap_modbus_io.ModbusModuleABC</a>.</p>
 
 </div>
 </div>
