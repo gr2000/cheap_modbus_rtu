@@ -222,6 +222,8 @@ class RelayModule(ModbusModuleABC):
         )
 
     def do_factory_reset(self):
+        """Factory reset not implemented for the relay modules
+        """
         raise NotImplementedError("Factory reset not implemented for the relay modules")
 
 
