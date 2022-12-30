@@ -72,9 +72,9 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self, st
 <tr class="memitem:a1622b25bdb5d2c5bc0b1a1d755af8761"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#a1622b25bdb5d2c5bc0b1a1d755af8761">set_discrete_output_register</a> (self, int slave_id, int register_no, bool active)</td></tr>
 <tr class="memdesc:a1622b25bdb5d2c5bc0b1a1d755af8761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set one discrete (on/off) output register ("coil")  <a href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#a1622b25bdb5d2c5bc0b1a1d755af8761">More...</a><br /></td></tr>
 <tr class="separator:a1622b25bdb5d2c5bc0b1a1d755af8761"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfe797a0515d7be5e0128ba71f3b0a6a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#adfe797a0515d7be5e0128ba71f3b0a6a">set_holding_register</a> (self, int slave_id, int register_no=40001, int value=0x0000, bool expect_echo_response=False)</td></tr>
-<tr class="memdesc:adfe797a0515d7be5e0128ba71f3b0a6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set one (analog or general-purpose) 16-bit value holding register.  <a href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#adfe797a0515d7be5e0128ba71f3b0a6a">More...</a><br /></td></tr>
-<tr class="separator:adfe797a0515d7be5e0128ba71f3b0a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace306b5fa580315fed1a4acb97b2077a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#ace306b5fa580315fed1a4acb97b2077a">set_holding_register</a> (self, int slave_id, int register_no=40001, int value=0x0000)</td></tr>
+<tr class="memdesc:ace306b5fa580315fed1a4acb97b2077a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set one (analog or general-purpose) 16-bit value holding register.  <a href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#ace306b5fa580315fed1a4acb97b2077a">More...</a><br /></td></tr>
+<tr class="separator:ace306b5fa580315fed1a4acb97b2077a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16cbf5758238522b23b803a93cd43f42"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#a16cbf5758238522b23b803a93cd43f42">set_holding_registers</a> (self, int slave_id, int start_register_no, tuple[int,...] values, bool expect_echo_response=False)</td></tr>
 <tr class="memdesc:a16cbf5758238522b23b803a93cd43f42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set one or more (analog or general-purpose) 16-bit value holding registers.  <a href="classcheap__modbus__rtu_1_1modbus__rtu__master_1_1_modbus_rtu_master.html#a16cbf5758238522b23b803a93cd43f42">More...</a><br /></td></tr>
 <tr class="separator:a16cbf5758238522b23b803a93cd43f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -326,8 +326,8 @@ bytes of register values if dtype == "raw" </dd></dl>
 
 </div>
 </div>
-<a id="adfe797a0515d7be5e0128ba71f3b0a6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adfe797a0515d7be5e0128ba71f3b0a6a">&#9670;&nbsp;</a></span>set_holding_register()</h2>
+<a id="ace306b5fa580315fed1a4acb97b2077a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace306b5fa580315fed1a4acb97b2077a">&#9670;&nbsp;</a></span>set_holding_register()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -354,13 +354,7 @@ bytes of register values if dtype == "raw" </dd></dl>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int &#160;</td>
-          <td class="paramname"><em>value</em> = <code>0x0000</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool &#160;</td>
-          <td class="paramname"><em>expect_echo_response</em> = <code>False</code>&#160;</td>
+          <td class="paramname"><em>value</em> = <code>0x0000</code>&#160;</td>
         </tr>
         <tr>
           <td></td>

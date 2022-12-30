@@ -106,6 +106,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SLAVE_ID_REGISTER</b> 
 <tr class="memitem:a88f885f95eddbdb38898965f511a90b2"><td class="memItemLeft" align="right" valign="top"><a id="a88f885f95eddbdb38898965f511a90b2"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_REGISTER</b> = 40256</td></tr>
 <tr class="separator:a88f885f95eddbdb38898965f511a90b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad59f16dd06290929a869e220a49e97af"><td class="memItemLeft" align="right" valign="top"><a id="ad59f16dd06290929a869e220a49e97af"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>FACTORY_RESET_REGISTER</b> = 40256</td></tr>
+<tr class="separator:ad59f16dd06290929a869e220a49e97af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ba75d370f08f7f22b9728693f172c88"><td class="memItemLeft" align="right" valign="top"><a id="a2ba75d370f08f7f22b9728693f172c88"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>FACTORY_RESET_VALUE</b> = 5</td></tr>
+<tr class="separator:a2ba75d370f08f7f22b9728693f172c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9ccfbe7a29e248c9b4b7934ec3fa52f"><td class="memItemLeft" align="right" valign="top"><a id="aa9ccfbe7a29e248c9b4b7934ec3fa52f"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>BROADCAST_SLAVE_ID</b> = 0xFF</td></tr>
 <tr class="separator:aa9ccfbe7a29e248c9b4b7934ec3fa52f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,6 +155,8 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
    Expect a CRC mismatch error when invoking this function,
    I don't know if this is always the case.
 </pre> 
+<p>Reimplemented in <a class="el" href="classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay_module.html#afab2a5bdce869bfd4971dd0b1234f4f7">cheap_modbus_rtu.cheap_modbus_io.RelayModule</a>.</p>
+
 </div>
 </div>
 <a id="a3c6bf5c8d4de6888c33ed36ea7fc76be"></a>
@@ -184,7 +192,7 @@ dictionary&#160;</td><td class="memItemRight" valign="bottom"><b>BAUDRATE_KEYS</
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if input is enabled, False if disabled </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if input signal is active, False if inactive </dd></dl>
 
 </div>
 </div>

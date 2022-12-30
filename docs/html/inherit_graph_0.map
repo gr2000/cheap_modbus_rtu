@@ -1,7 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
 <area shape="rect" id="node1" href="$classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_modbus_module_a_b_c.html" title="Base class for cheap Modbus IO modules." alt="" coords="5,136,236,177"/>
 <area shape="rect" id="node2" href="$classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_a_i_a04.html" title="Control N4AIA04 4&#45;channel 0..5V / 0..10V / 0..20mA analog input modules (ADC) via RS&#45;485 Modbus RTU." alt="" coords="285,5,473,47"/>
-<area shape="rect" id="node3" href="$classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_d_a_c02.html" title="Control N4DAC02 4&#45;channel 0..5V / 0..10V / 0..20mA analog output modules (DAC) via RS&#45;485 Modbus RTU." alt="" coords="285,71,473,112"/>
+<area shape="rect" id="node3" href="$classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_n4_d_a_c02.html" title="Control N4DAC02 2&#45;channel 0..5V / 0..10V analog output modules (DAC) via RS&#45;485 Modbus RTU." alt="" coords="285,71,473,112"/>
 <area shape="rect" id="node4" href="$classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_p_w_m8_a04.html" title="Control PWM8A04 3&#45;channel PWM output modules via RS&#45;485 Modbus RTU." alt="" coords="285,136,473,177"/>
 <area shape="rect" id="node5" href="$classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_r4_d_i_f08.html" title="Control R4DIF08 8&#45;channel digital input modules via RS&#45;485 Modbus RTU." alt="" coords="285,201,473,243"/>
 <area shape="rect" id="node6" href="$classcheap__modbus__rtu_1_1cheap__modbus__io_1_1_relay_module.html" title="Control affordable Modbus relay PCBs via RS&#45;485 Modbus RTU." alt="" coords="284,267,473,308"/>
