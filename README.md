@@ -4,20 +4,28 @@
 
 ### Currently supported hardware
 
-#### "bestep" brand:
-* 2-CH Digital IN + Relay module ![2-CH Relay PCB](./docs/img/relay_2_ch.jpg)
+### "bestep" brand:
+* 2-CH Digital IN + Relay module  
+  ![2-CH Relay PCB](./docs/img/relay_2_ch.jpg)
 
-* 4-CH Digital IN + Relay module ![4-CH Relay PCB](./docs/img/relay_4_ch.jpg)
+* 4-CH Digital IN + Relay module  
+  ![4-CH Relay PCB](./docs/img/relay_4_ch.jpg)
 
-* (untested) 8-CH Digital IN + Relay module
+* (untested) 8-CH Digital IN + Relay module  
+  (no image)
 
-* PWM8A04 3-CH PWM OUT PCB ![PWM8A04 PCB](./docs/img/PWM8A04.jpg)
+### "eletechsup" brand:
+* PWM8A04 3-CH PWM OUT PCB  
+  ![PWM8A04 PCB](./docs/img/PWM8A04.jpg)
 
-* R4DIF08 8-CH Digital IN module ![R4DIF08 PCB](./docs/img/R4DIF08.jpg)
+* R4DIF08 8-CH Digital IN module  
+  ![R4DIF08 PCB](./docs/img/R4DIF08.jpg)
 
-* N4AIA04 4-CH 0..5V / 0..10V / 0..20mA analog input module ![N4AIA04 PCB](./docs/img/N4AIA04.jpg)
+* N4AIA04 4-CH 0..5V / 0..10V / 0..20mA analog input module  
+  ![N4AIA04 PCB](./docs/img/N4AIA04.jpg)
 
-* N4DAC02 2-CH 0..5V / 0..10V analog output module ![N4DAC02](./docs/img/N4DAC02.jpg)
+* N4DAC02 2-CH 0..5V / 0..10V analog output module  
+  ![N4DAC02](./docs/img/N4DAC02.jpg)
 
 ```
 # This requires Python >= 3.9 
