@@ -267,7 +267,8 @@ class ModbusRtuMaster():
         # Check length again
         if len(frame_in) < length_expected:
             raise ModbusException(
-                "Not enough modbus data received, maybe timeout issue..\n"
+                "Not enough modbus data received, maybe timeout issue.\n"
+                "Check communication settings, wire connection and polarity..\n"
                 f'Sent: "{frame_out.hex(" ")}"  Received: "{frame_in.hex(" ")}"'
             )
         # Check CRC

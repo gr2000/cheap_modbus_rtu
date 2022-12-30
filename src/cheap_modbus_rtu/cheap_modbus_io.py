@@ -158,7 +158,7 @@ class RelayModule(ModbusModuleABC):
             input_no:   Input number, starts counting at 1
 
         Returns:
-            True if input is enabled, False if disabled
+            True if input signal is active, False if inactive
         """
         if 1 > input_no or input_no > self.NUM_IOS:
             raise ValueError(f"Input number must be between 1 and {self.NUM_IOS}")
@@ -443,7 +443,7 @@ class R4DIF08(ModbusModuleABC):
             input_no:   Input number, starts counting at 1
 
         Returns:
-            True if input is enabled, False if disabled
+            True if input signal is active, False if inactive
         """
         if 1 > input_no or input_no > 8:
             raise ValueError("Input number must be between 1 and 8")
