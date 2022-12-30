@@ -19,4 +19,7 @@ dependencies = [
     "pyserial",
 ]
 
+[project.urls]
+"Homepage" = "https://github.com/ul-gh/cheap_modbus_rtu"
+
 [tool.setuptools_scm]
