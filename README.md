@@ -38,6 +38,9 @@ user@linux:~/mysrc$ cd cheap_modbus_rtu
 user@linux:~/mysrc$ pip install .
 ```
 
+## Documentation Link:  
+[API Documentation (Github Link)](https://ul-gh.github.io/cheap_modbus_rtu/html/annotated.html) 
+
 ### R4DIF08, 8-Channel digital input PCB: Read all eight inputs
 
 ```python
@@ -111,8 +114,4 @@ Nice documentation of the Modbus-RTU protocol (English):
 [https://ipc2u.com Modbus Protocol Description and Examples](https://ipc2u.com/articles/knowledge-base/modbus-rtu-made-simple-with-detailed-descriptions-and-examples/)
 
 (Same content in German) Beschreibung des Modbus-RTU Protokolls:
-[https://ipc2u.de](https://ipc2u.de/artikel/wissenswertes/modbus-rtu-einfach-gemacht-mit-detaillierten-beschreibungen-und-beispielen/)
-
-
-Please also see:  
-[API Documentation (Github Link)](https://ul-gh.github.io/cheap_modbus_rtu/html/annotated.html)  
+[https://ipc2u.de](https://ipc2u.de/artikel/wissenswertes/modbus-rtu-einfach-gemacht-mit-detaillierten-beschreibungen-und-beispielen/) 
