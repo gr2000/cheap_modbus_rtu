@@ -5,14 +5,30 @@
 ### Currently supported hardware
 
 ### "bestep" brand:
-* 2-CH Digital IN + Relay module  
+* **_NOTE:_**  
+  While the 2-CH and the 4-CH relay PCB seem to come without the 120-Ohms termination resistor, the 1-CH relay does have the resistor fitted, this is marked R14 on the 1-CH-PCB.
+  For multiple devices on the bus, this resistor must be removed.
+
+*  **_NOTE:_**  
+  The relay PCBs require an external, biased RS-485 termination:  
+  ![RS-485 biased termination](./docs/img/Rs485-bias-termination.png)  
+  The on-board bias network is not sufficient when the bus is properly terminated with 120-Ohms on each end
+
+* ⚠️ **_WARNING:_**  
+  Even though the 2-CH and the 4-CH module come with optocouplers fitted on the digital inputs, the clearance and creepage distances on the PCB are /not/ sufficient for basic or reinforced insulation of 115/230V mains voltage. Use an external optocoupler when connecting the inputs to mains voltage circuits!
+
+* 1-CH Digital IN + Relay module (non-isolated input)  
+  ![1-CH Relay PCB](./docs/img/relay_1_ch.jpg)
+
+* 2-CH Digital IN + Relay module (input with low-voltage isolation)  
   ![2-CH Relay PCB](./docs/img/relay_2_ch.jpg)
 
-* 4-CH Digital IN + Relay module  
+* 4-CH Digital IN + Relay module (input with low-voltage isolation) 
   ![4-CH Relay PCB](./docs/img/relay_4_ch.jpg)
 
 * (untested) 8-CH Digital IN + Relay module  
   (no image)
+
 
 ### "eletechsup" brand:
 * PWM8A04 3-CH PWM OUT PCB  

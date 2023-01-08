@@ -48,16 +48,36 @@ $(function() {
 Lightweight control of cheap Modbus RTU components using Python</h1>
 <h2><a class="anchor" id="autotoc_md2"></a>
 Currently supported hardware</h2>
-<h3><a class="anchor" id="autotoc_md3"></a>
-"bestep" brand:</h3>
+<h2><a class="anchor" id="autotoc_md3"></a>
+"bestep" brand:</h2>
 <ul>
-<li>2-CH Digital IN + Relay module <img src="./docs/img/relay_2_ch.jpg" alt="2-CH Relay PCB" class="inline"/></li>
-<li>4-CH Digital IN + Relay module <img src="./docs/img/relay_4_ch.jpg" alt="4-CH Relay PCB" class="inline"/></li>
-<li>(untested) 8-CH Digital IN + Relay module</li>
-<li>PWM8A04 3-CH PWM OUT PCB <img src="./docs/img/PWM8A04.jpg" alt="PWM8A04 PCB" class="inline"/></li>
-<li>R4DIF08 8-CH Digital IN module <img src="./docs/img/R4DIF08.jpg" alt="R4DIF08 PCB" class="inline"/></li>
-<li>N4AIA04 4-CH 0..5V / 0..10V / 0..20mA analog input module <img src="./docs/img/N4AIA04.jpg" alt="N4AIA04 PCB" class="inline"/></li>
-<li>N4DAC02 2-CH 0..5V / 0..10V analog output module <img src="./docs/img/N4DAC02.jpg" alt="N4DAC02" class="inline"/></li>
+<li>**_NOTE:_** <br  />
+ While the 2-CH and the 4-CH relay PCB seem to come without the 120-Ohms termination resistor, the 1-CH relay does have the resistor fitted, this is marked R14 on the 1-CH-PCB. For multiple devices on the bus, this resistor must be removed.</li>
+<li>**_NOTE:_** <br  />
+ The relay PCBs require an external, biased RS-485 termination: <br  />
+ <img src="./docs/img/Rs485-bias-termination.png" alt="RS-485 biased termination" class="inline"/> <br  />
+ The on-board bias network is not sufficient when the bus is properly terminated with 120-Ohms on each end</li>
+<li>⚠️ **_WARNING:_** <br  />
+ Even though the 2-CH and the 4-CH module come with optocouplers fitted on the digital inputs, the clearance and creepage distances on the PCB are /not/ sufficient for basic or reinforced insulation of 115/230V mains voltage. Use an external optocoupler when connecting the inputs to mains voltage circuits!</li>
+<li>1-CH Digital IN + Relay module (non-isolated input) <br  />
+ <img src="./docs/img/relay_1_ch.jpg" alt="1-CH Relay PCB" class="inline"/></li>
+<li>2-CH Digital IN + Relay module (input with low-voltage isolation) <br  />
+ <img src="./docs/img/relay_2_ch.jpg" alt="2-CH Relay PCB" class="inline"/></li>
+<li>4-CH Digital IN + Relay module (input with low-voltage isolation) <img src="./docs/img/relay_4_ch.jpg" alt="4-CH Relay PCB" class="inline"/></li>
+<li>(untested) 8-CH Digital IN + Relay module <br  />
+ (no image)</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md4"></a>
+"eletechsup" brand:</h2>
+<ul>
+<li>PWM8A04 3-CH PWM OUT PCB <br  />
+ <img src="./docs/img/PWM8A04.jpg" alt="PWM8A04 PCB" class="inline"/></li>
+<li>R4DIF08 8-CH Digital IN module <br  />
+ <img src="./docs/img/R4DIF08.jpg" alt="R4DIF08 PCB" class="inline"/></li>
+<li>N4AIA04 4-CH 0..5V / 0..10V / 0..20mA analog input module <br  />
+ <img src="./docs/img/N4AIA04.jpg" alt="N4AIA04 PCB" class="inline"/></li>
+<li>N4DAC02 2-CH 0..5V / 0..10V analog output module <br  />
+ <img src="./docs/img/N4DAC02.jpg" alt="N4DAC02" class="inline"/></li>
 </ul>
 <div class="fragment"><div class="line"># This requires Python &gt;= 3.9 </div>
 <div class="line"># and recent version of setuptools and pip</div>
@@ -67,7 +87,10 @@ Currently supported hardware</h2>
 <div class="line">user@linux:~/mysrc$ git clone https://github.com/ul-gh/cheap_modbus_rtu.git</div>
 <div class="line">user@linux:~/mysrc$ cd cheap_modbus_rtu</div>
 <div class="line">user@linux:~/mysrc$ pip install .</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md4"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
+Documentation Link:</h1>
+<p><a href="https://ul-gh.github.io/cheap_modbus_rtu/html/annotated.html">API Documentation (Github Link)</a></p>
+<h2><a class="anchor" id="autotoc_md6"></a>
 R4DIF08, 8-Channel digital input PCB: Read all eight inputs</h2>
 <div class="fragment"><div class="line">from cheap_modbus_rtu import R4DIF08</div>
 <div class="line"> </div>
@@ -76,7 +99,7 @@ R4DIF08, 8-Channel digital input PCB: Read all eight inputs</h2>
 <div class="line"> </div>
 <div class="line">inputs = input_module.get_inputs()</div>
 <div class="line">print(inputs)</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md7"></a>
 Relay IO PCB: Toggle one relay on-off in a 1-second cycle</h2>
 <div class="fragment"><div class="line">import time</div>
 <div class="line"># Also works with the other multi-channel variants</div>
@@ -90,7 +113,7 @@ Relay IO PCB: Toggle one relay on-off in a 1-second cycle</h2>
 <div class="line">    time.sleep(0.5)</div>
 <div class="line">    modbus_relay.set_output(1, False)</div>
 <div class="line">    time.sleep(0.5)</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
 PWM8A04, 3-Channel PWM output PCB: Set output 1 to 20 kHz, 33 % duty cycle</h2>
 <div class="fragment"><div class="line">from cheap_modbus_rtu import PWM8A04</div>
 <div class="line"> </div>
@@ -99,7 +122,7 @@ PWM8A04, 3-Channel PWM output PCB: Set output 1 to 20 kHz, 33 % duty cycle</h2>
 <div class="line"> </div>
 <div class="line">pwm.set_output_frequency(1, 20000)</div>
 <div class="line">pwm.set_output_duty(1, 33)</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md7"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md9"></a>
 Relay IO PCB: Read both inputs of the 2-Channel variant and write them directly to the relay outputs</h3>
 <div class="fragment"><div class="line">while True:</div>
 <div class="line">    input_1 = modbus_relay.get_input(1)</div>
@@ -109,7 +132,7 @@ Relay IO PCB: Read both inputs of the 2-Channel variant and write them directly 
 <div class="line">    print(f&quot;\rInput 1: {input_1}  Input 2: {input_2}  &quot;, end=&quot;&quot;)</div>
 <div class="line">    time.sleep(0.1)</div>
 </div><!-- fragment --> <pre class="fragment">Input 1: False  Input 2: False  
-</pre><h3><a class="anchor" id="autotoc_md8"></a>
+</pre><h3><a class="anchor" id="autotoc_md10"></a>
 Relay IO PCB: Set Slave ID from 255 to 1</h3>
 <p>This must only be done once, not at every device start, otherwise flash wear might be an issue. Once a different Slave ID is configured, invoke the constructor of this library with the new ID as an argument.</p>
 <div class="fragment"><div class="line">modbus_relay.get_broadcast_slave_id()</div>
@@ -119,10 +142,7 @@ Relay IO PCB: Set Slave ID from 255 to 1</h3>
 <div class="line">modbus_relay.get_broadcast_slave_id()</div>
 <div class="line">&gt;&gt;&gt;     1</div>
 </div><!-- fragment --><p>Nice documentation of the Modbus-RTU protocol (English): <a href="https://ipc2u.com/articles/knowledge-base/modbus-rtu-made-simple-with-detailed-descriptions-and-examples/">https://ipc2u.com Modbus Protocol Description and Examples</a></p>
-<p>(Same content in German) Beschreibung des Modbus-RTU Protokolls: <a href="https://ipc2u.de/artikel/wissenswertes/modbus-rtu-einfach-gemacht-mit-detaillierten-beschreibungen-und-beispielen/">https://ipc2u.de</a></p>
-<p>Please also see: <br  />
- <a href="https://ul-gh.github.io/cheap_modbus_rtu/html/annotated.html">API Documentation (Github Link)</a> <br  />
- </p>
+<p>(Same content in German) Beschreibung des Modbus-RTU Protokolls: <a href="https://ipc2u.de/artikel/wissenswertes/modbus-rtu-einfach-gemacht-mit-detaillierten-beschreibungen-und-beispielen/">https://ipc2u.de</a> </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
