@@ -207,6 +207,7 @@ class ModbusRtuMaster():
         frame_out += int.to_bytes(register_no-40001, 2, "big")
         # Append data
         frame_out += int.to_bytes(value, 2, "big", signed=value<0)
+        #print (frame_out)
         self._add_crc_transmit(frame_out, 8)
 
 

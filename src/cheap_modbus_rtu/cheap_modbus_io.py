@@ -699,3 +699,123 @@ class N4DAC02(ModbusModuleABC):
             output_no + self.OUTPUT_CAL_REG_OFFSET,
             reg_val
         )
+        
+        
+        
+class N4D8B08(ModbusModuleABC):
+    """Control N4D8B08 8-channel out relay, 8-ch input modules
+    via RS-485 Modbus RTU
+
+    ???The N4DAC02 seem to come with a pre-set slave ID of 1.
+
+    Brand name is "eletechsup", available at https://www.eletechsup.com
+    """
+    OUTPUT_REG_OFFSET = 40000
+    OUTPUT_REG_BITMASK = 40112
+    #Input port status regs base
+    #0x0081-0x0090 (129-144) -  0X0000  No input
+    #                           0X0001  Has input
+    INPUT_REG_OFFSET = 40129    
+    #Input port status (bit mask)
+    #0X00C0:1-16 Input channels 
+    INPUT_REG_BITMASK =   40192
+    #    Remote IO Sender
+    #   0 Disabled(default)
+    #   1-255: 0.2-51 seconds to send once
+    REMOTE_IO_SENDER_REG = 40249
+    #    Remote IO Receiver
+    #   0 Disabled(default)
+    #   1 Enable
+    REMOTE_IO_RECEIVER_REG = 40250
+    #   0: Select automatic report register: 0x0081-0x090 
+    #   1: Select automatic report register: 0X00C0
+    SELECT_AUTOMATIC_REPORT_REG = 40252
+    #   Input port status automatic reporting function
+    #   0: Query function(default) 1-255: Automatically report, the unit is second. 
+    #   1: Report every 1 second
+    #   2: Report every 2 seconds 
+    #   10: Report every 10 seconds Maximum interval of 255 seconds
+    AUTOMATIC_REPORT_REG = 40253
+    #   DIP switch settings Read only
+    SLAVE_ID_REGISTER = 40254
+    
+    BAUDRATE_REGISTER = 40255
+    #FACTORY_RESET_REGISTER = 40016
+    #FACTORY_RESET_VALUE = 5
+    BROADCAST_SLAVE_ID = 0xFF # This is non-standard
+    BAUDRATE_KEYS = {1200: 0, 2400: 1, 4800: 2, 9600: 3, 19200: 4}
+
+    def __init__(self,
+                 slave_id: int = 1,
+                 serial_device_name: str = None,
+                 baudrate: int = 9600,
+                 **kwargs
+                 ):
+        super().__init__(slave_id, serial_device_name, baudrate, **kwargs)
+
+#    def set_out_reg(self, output_no: int, value=False ):
+    def set_out_reg(self, output_no: int, value: bool = False , delay: int = 0):
+
+        if 0 > delay or delay >= 0x100 :
+            raise ValueError("delay must  0 ... 255 sec")    
+        if output_no > 8 or output_no < 1 :
+            raise ValueError("Output no. must  1 ... 8")
+        
+        data = 0x200
+        if value :
+            data = 0x100
+        if 0 < delay and delay < 0x100:
+            data |= delay    
+        self.master.set_holding_register(
+            self.slave_id, 
+            self.OUTPUT_REG_OFFSET + output_no + 1,
+            data)
+#        print (output_no, self.OUTPUT_REG_OFFSET + output_no)
+
+    def get_input(self, input_no: int) -> bool:
+        """Return the state of the specified digital input
+
+        Args:
+            input_no:   Input number, starts counting at 1
+
+        Returns:
+            True if input signal is active, False if inactive
+        """
+        if 1 > input_no or input_no > 8:
+            raise ValueError("Input number must be between 1 and 8")
+        reg_val = self.master.read_holding_registers(
+            self.slave_id,
+            self.INPUT_REG_OFFSET + input_no,
+            1,
+            dtype="raw"
+        )
+        return bool(reg_val[1])
+
+    def get_inputs_mask(self) -> int:
+        """Returns the state of the 8 digital inputs
+
+        Returns:
+            #Tuple of 8 boolean flags, one for each input
+            bitmask input state 
+        """
+        reg_vals = self.master.read_holding_registers(
+            self.slave_id,
+            self.INPUT_REG_BITMASK ,
+            1,
+            dtype="words"
+        )
+        return reg_val
+        
+    def get_inputs(self) -> tuple[bool, ...]:
+        """Returns the state of the 8 digital inputs
+
+        Returns:
+            Tuple of 8 boolean flags, one for each input
+        """
+        reg_vals = self.master.read_holding_registers(
+            self.slave_id,
+            self.INPUT_REG_OFFSET + 1,
+            8,
+            dtype="words"
+        )
+        return tuple(bool(reg_val[1]) for reg_val in reg_vals)        
